@@ -19,10 +19,6 @@ class CateRepository
         return $this->CateResourceModel->save($model);
     }
 
-    public function delete($model) {
-        return $this->CateResourceModel->delete($model);
-    }
-
     public function getId($id) {
         return $this->CateResourceModel->getId($id);
     }

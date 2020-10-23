@@ -14,6 +14,10 @@ use Mvc\Models\CateModel;
 
 use Mvc\Models\CateRepository;
 
+use Mvc\Models\CustommerModel;
+
+use Mvc\Models\CustommerRepository;
+
 use Mvc\Models\ImgModel;
 
 use Mvc\Models\ImgRepository;
@@ -30,16 +34,6 @@ class LedsController extends Controller
 
     function index()
     {
-        $this->render("index");
-    }
-
-    function login()
-    {
-        $this->render("login");
-    }
-
-    function home()
-    {
         $newLed = new LedModel();
         $d['led'] = $this->LedRepository->showAll($newLed);
         $this->set($d);
@@ -54,21 +48,38 @@ class LedsController extends Controller
         $d['img'] = $req->showAll($newImg);;
         $this->set($d);
 
-        $this->render("home");
+        $this->render("index");
     }
 
-    function homeCateId($id)
+
+    function login()
+    {
+        $this->render("login");
+    }
+
+    function contact()
+    {
+        $this->render("contact");
+    }
+
+    function categori($id)
     {
         $newLed = new LedModel();
-        $arr = $this->LedRepository->showAll($newLed);
 
-        $d['led'] = [];
+        if ($id == 'all') {
+            $newLed = new LedModel();
+            $d['led'] = $this->LedRepository->showAll($newLed);
+        } else {
+            $arr = $this->LedRepository->showAll($newLed);
 
-        foreach ($arr as $key => $value) {
-            
-            if($value['categori_id'] == $id) {
-                $d['led'][$key] = $value;
-            }       
+            $d['led'] = [];
+
+            foreach ($arr as $key => $value) {
+
+                if ($value['categori_id'] == $id) {
+                    $d['led'][$key] = $value;
+                }
+            }
         }
         $this->set($d);
 
@@ -82,142 +93,169 @@ class LedsController extends Controller
         $d['img'] = $req->showAll($newImg);;
         $this->set($d);
 
-        $this->render("homecateid");
+        $this->render("categori");
     }
 
-    function create()
+
+    public function cart($id, $quantity)
     {
-        if (isset($_POST["name"])) {
+        
+        if (isset($_SESSION['cart'][$id])) {
+            
+            if (isset($_POST['sum'])) {
 
-            $Led = new LedModel();
-            $Img = new ImgModel();
-            $req = new ImgRepository();
+                foreach ($_POST['sum'] as $id => $sum) {
+                    if ($sum == 0) {
+                        unset($_SESSION['cart'][$id]);
+                    } elseif ($sum > 0) {
 
-            $Led->setName($_POST["name"]);
-            $Led->setDescription($_POST["description"]);
-            $Led->setPrice($_POST["price"]);
-            $Led->setCategori_id($_POST["categori_id"]);
-            $Led->setCreate_at($_POST["create_at"]);
-
-            if ($this->LedRepository->add($Led)) {
-                $conn = new Database();
-
-                $id = $conn->getBdd()->lastInsertId();
-
-                if (isset($_FILES["image"])) {
-
-                    $fileUpload = $_SERVER['DOCUMENT_ROOT'] . '/admin/views/img/';
-
-                    $file = $_FILES["image"]['name'];
-
-                    foreach ($file as $key => $name) {
-
-                        if ($name == UPLOAD_ERR_OK) {
-
-                            $tmp_name = $_FILES["image"]["tmp_name"][$key];
-                            $name = basename($_FILES["image"]["name"][$key]);
-                            move_uploaded_file($tmp_name, "$fileUpload/$name");
-
-
-                            $Img->setLed_id($id);
-                            $Img->setName($name);
-                            $Img->setCreate_at($_POST["create_at"]);
-
-                            $req->add($Img);
-                        }
+                        $_SESSION['quantity'][$id] = $sum;
                     }
+                }
+            } else {
 
-                    header("Location: " . WEBROOT . "leds/home");
+                if($quantity != '0') {
+                    $_SESSION['quantity'][$id] = $_SESSION['quantity'][$id] + $quantity;
                 }
             }
+        } else {
+
+            $_SESSION['cart'][$id] = 1;
+            $_SESSION['quantity'][$id] = $quantity;
         }
+
+        if(isset($_SESSION['cart'])) {
+
+            $arrId = [];
+
+            foreach ($_SESSION['cart'] as $id => $value) {
+                if($id != 'all') {
+                    $arrId[] = $id;
+                }
+            }
+
+            $Led = new LedModel();
+            $Led->setId($id);
+            $arrLed = $this->LedRepository->showAll($Led);
+
+            $d['led'] = [];
+            foreach ($arrLed as $keyLed => $valueLed) {
+
+                foreach ($arrId as $keyArr => $valueArr) {
+
+                    if ($valueLed['id'] == $valueArr) {
+
+                        $d['led'][$keyArr] = $valueLed;
+                    }
+                }
+            }
+            $this->set($d);
+
+            $newCate = new CateModel();
+            $rep = new CateRepository();
+            $d['cate'] = $rep->showAll($newCate);;
+            $this->set($d);
+
+
+            $newImg = new ImgModel();
+            $req = new ImgRepository();
+            $d['img'] = $req->showAll($newImg);;
+            $this->set($d);
+        }
+
+        $this->render("cart");
+    }
+
+    function checkout()
+    {
+        
+        if (isset($_POST['quantity'])) {
+            $quantity = $_POST['quantity'];
+            $price = $_POST['price'];
+    
+            $address = $_POST["village"] . '-' . $_POST["district"] . '-' . $_POST["city"];
+            foreach ($quantity as $id => $value) {
+             
+                $Cus = new CustommerModel();
+                $req = new CustommerRepository();
+    
+                $Cus->setName($_POST["name"]);
+                $Cus->setLed_id($id);
+                $Cus->setCount($value);
+                $Cus->setPrice($price);
+                $Cus->setAddress($address);
+                $Cus->setTell($_POST["tell"]);
+                $Cus->setCreate_at($_POST["create_at"]);
+    
+                $req->add($Cus);                         
+            }
+            if($req->add($Cus)) {
+                unset($_SESSION['cart']);
+            }
+
+            $this->index();
+
+        }
+
+        
+        if(isset($_SESSION['cart'])) {
+            
+            $arrId = [];
+        
+
+            foreach ($_SESSION['cart'] as $id => $value) {
+                $arrId[] = $id;
+            }
+
+            $Led = new LedModel();
+            $Led->setId($id);
+            $arrLed = $this->LedRepository->showAll($Led);
+
+            $d['led'] = [];
+            foreach ($arrLed as $keyLed => $valueLed) {
+
+                foreach ($arrId as $keyArr => $valueArr) {
+
+                    if ($valueLed['id'] == $valueArr) {
+
+                        $d['led'][$keyArr] = $valueLed;
+                    }
+                }
+            }
+
+            $this->set($d);
+
+            $newCate = new CateModel();
+            $rep = new CateRepository();
+            $d['cate'] = $rep->showAll($newCate);;
+            $this->set($d);
+
+            $newImg = new ImgModel();
+            $req = new ImgRepository();
+            $d['img'] = $req->showAll($newImg);;
+            $this->set($d);
+
+            $this->render("checkout");
+        }
+    }
+
+    function product($id)
+    {
+        $Led = new LedModel();
+        $Led->setId($id);
+        $d["Led"] = $this->LedRepository->getId($id);
+        $this->set($d);
 
         $newCate = new CateModel();
         $rep = new CateRepository();
         $d['cate'] = $rep->showAll($newCate);;
         $this->set($d);
 
-        $this->render("create");
-    }
-
-    function edit($id)
-    {
-        $Led = new LedModel();
-        $Led->setId($id);
-
-        $Img = new ImgModel();
-        $rep = new ImgRepository();
-        $Img->setId($id);
-        $Img->setLed_id($id);
-
-
-        if (isset($_POST["name"])) {
-            $Led->setCategori_id($_POST["categori_id"]);
-            $Led->setName($_POST["name"]);
-            $Led->setDescription($_POST["description"]);
-            $Led->setPrice($_POST["price"]);
-            $Led->setUpdate_at($_POST["update_at"]);
-
-            if ($this->LedRepository->update($Led)) {
-
-                $rep->deleteImg($Img);
-
-                $fileUpload = $_SERVER['DOCUMENT_ROOT'] . '/admin/views/img/';
-
-                $file = $_FILES["image"]['name'];
-
-                foreach ($file as $key => $name) {
-
-                    if ($name == UPLOAD_ERR_OK) {
-
-                        $tmp_name = $_FILES["image"]["tmp_name"][$key];
-                        $name = basename($_FILES["image"]["name"][$key]);
-                        move_uploaded_file($tmp_name, "$fileUpload/$name");
-
-
-                        $Img->setLed_id($id);
-                        $Img->setName($name);
-                        $Img->setCreate_at($_POST["create_at"]);
-                        $Img->setUpdate_at($_POST["update_at"]);
-
-                        $rep->update($Img);
-                    }
-                }
-
-                header("Location: " . WEBROOT . "leds/home");
-            }
-        }
-
-        $d["Led"] = $this->LedRepository->getId($id);
+        $newImg = new ImgModel();
+        $req = new ImgRepository();
+        $d['img'] = $req->showAll($newImg);;
         $this->set($d);
 
-        $d["img"] = $rep->showAll($Img);
-        $this->set($d);
-
-        $Cate = new CateModel();
-        $req = new CateRepository();
-
-        $d['cate'] = $req->showAll($Cate);
-        $this->set($d);
-
-        $this->render("edit");
-    }
-
-    function delete($id)
-    {
-        $Led = new LedModel();
-        $Led->setId($id);
-
-        $Img = new ImgModel();
-        $rep = new ImgRepository();
-        $Img->setId($id);
-        $Img->setLed_id($id);
-
-        if ($this->LedRepository->delete($Led)) {
-            if ($rep->deleteImg($Img)) {
-
-                header("Location: " . WEBROOT . "leds/home");
-            }
-        }
+        $this->render("product");
     }
 }

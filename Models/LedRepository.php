@@ -19,17 +19,9 @@ class LedRepository
         return $this->LedResourceModel->save($model);
     }
 
-    public function delete($model) {
-        return $this->LedResourceModel->delete($model);
-    }
-
     public function getId($id) {
         return $this->LedResourceModel->getId($id);
     }
-
-    // public function getCateId() {
-    //     return $this->LedResourceModel->getCateId();
-    // }
 
     public function showAll() {
         return $this->LedResourceModel->showAll();

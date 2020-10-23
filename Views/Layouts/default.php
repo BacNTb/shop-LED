@@ -21,6 +21,11 @@
             z-index: 1;
         }
 
+        .img_view {
+            width: 100px;
+            object-fit: cover;
+        }
+
     </style>
 
 </head>
@@ -272,7 +277,7 @@
                                     <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php if (isset($_SESSION['username'])) {
                                                                                                     echo $_SESSION['name'];
                                                                                                 } ?></span>
-                                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                    <img class="img-profile rounded-circle" src="/admin/views/img/a.jpg">
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -314,7 +319,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <!-- JS Only  -->
-    <!-- <script src="/admin/views/layouts/js/js.js"></script> -->
+    <script src="/admin/views/layouts/js/js.js"></script>
     <script src="https://kit.fontawesome.com/yourcode.js"></script>
 
 </body>

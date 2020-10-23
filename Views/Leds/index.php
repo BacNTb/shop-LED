@@ -1,139 +1,255 @@
-<div class="card">
-    <h5 class="card-header">Trang chủ</h5>
-    <div class="card-body row">
-
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <a href="/admin/categoris/cate/home" class="card-body">
-                    <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Danh Mục</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo 'a'; ?></div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-list-ul fa-2x text-gray-300"></i>
-                    </div>
-                    </div>
-                </a>
+  <!-- Hero section -->
+  <section class="hero-section">
+    <div class="hero-slider owl-carousel">
+      <div class="hs-item set-bg" data-setbg="/bshop/views/layouts/img/bg.jpg">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-6 col-lg-7 text-white">
+              <span>New Arrivals</span>
+              <h2>denim jackets</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+              <a href="#" class="site-btn sb-line">XEM</a>
+              <a href="#" class="site-btn sb-white">THÊM VÀO GIỎ HÀNG</a>
             </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <a href="/admin/leds/home/" class="card-body">
-                    <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Sản Phẩm</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo 'a'; ?></div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fab fa-product-hunt fa-2x text-gray-300""></i>
-                    </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <a href="/admin/admins/admin/home" class="card-body">
-                    <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Admin</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo 'a'; ?></div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-user-lock fa-2x text-gray-300"></i>
-                    </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <a href="/admin/" class="card-body">
-                    <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Khách Hàng</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo 'a'; ?></div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fab fa-intercom fa-2x text-gray-300"></i>
-                    </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-
-  <!-- Area Chart -->
-  <div class="col-xl-8 col-lg-7">
-    <div class="card shadow mb-4">
-      <!-- Card Header - Dropdown -->
-      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-        <div class="dropdown no-arrow">
-          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-            <div class="dropdown-header">Dropdown Header:</div>
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+          <div class="offer-card text-white">
+            <span>from</span>
+            <h2>$29</h2>
+            <p>SHOP NOW</p>
           </div>
         </div>
       </div>
-      <!-- Card Body -->
-      <div class="card-body">
-        <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-          <canvas id="myAreaChart" width="668" height="320" class="chartjs-render-monitor" style="display: block; width: 668px; height: 320px;"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Pie Chart -->
-  <div class="col-xl-4 col-lg-5">
-    <div class="card shadow mb-4">
-      <!-- Card Header - Dropdown -->
-      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-        <div class="dropdown no-arrow">
-          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-            <div class="dropdown-header">Dropdown Header:</div>
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+      <div class="hs-item set-bg" data-setbg="/bshop/views/layouts/img/bg-2.jpg">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-6 col-lg-7 text-white">
+              <span>New Arrivals</span>
+              <h2>denim jackets</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+              <a href="#" class="site-btn sb-line">XEM</a>
+              <a href="#" class="site-btn sb-white">THÊM VÀO GIỎ HÀNG</a>
+            </div>
+          </div>
+          <div class="offer-card text-white">
+            <span>from</span>
+            <h2>$29</h2>
+            <p>SHOP NOW</p>
           </div>
         </div>
       </div>
-      <!-- Card Body -->
-      <div class="card-body">
-        <div class="chart-pie pt-4 pb-2"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-          <canvas id="myPieChart" width="301" height="245" class="chartjs-render-monitor" style="display: block; width: 301px; height: 245px;"></canvas>
+    </div>
+    <div class="container">
+      <div class="slide-num-holder" id="snh-1"></div>
+    </div>
+  </section>
+  <!-- Hero section end -->
+
+
+
+  <!-- Features section -->
+  <section class="features-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4 p-0 feature">
+          <div class="feature-inner">
+            <div class="feature-icon">
+              <img src="/bshop/views/layouts/img/icons/1.png" alt="#">
+            </div>
+            <h2>THANH TOÁN AN TOÀN</h2>
+          </div>
         </div>
-        <div class="mt-4 text-center small">
-          <span class="mr-2">
-            <i class="fas fa-circle text-primary"></i> Direct
-          </span>
-          <span class="mr-2">
-            <i class="fas fa-circle text-success"></i> Social
-          </span>
-          <span class="mr-2">
-            <i class="fas fa-circle text-info"></i> Referral
-          </span>
+        <div class="col-md-4 p-0 feature">
+          <div class="feature-inner">
+            <div class="feature-icon">
+              <img src="/bshop/views/layouts/img/icons/2.png" alt="#">
+            </div>
+            <h2>SẢN PHẨM CAO CẤP</h2>
+          </div>
+        </div>
+        <div class="col-md-4 p-0 feature">
+          <div class="feature-inner">
+            <div class="feature-icon">
+              <img src="/bshop/views/layouts/img/icons/3.png" alt="#">
+            </div>
+            <h2>GIAO HÀNG MIỄN PHÍ</h2>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
+  <!-- Features section end -->
+
+
+  <!-- letest product section -->
+  <section class="top-letest-product-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>SẢN PHẨM MỚI NHẤT</h2>
+      </div>
+      <div class="product-slider owl-carousel">
+        <div class="product-item">
+          <div class="pi-pic">
+            <img src="/bshop/views/layouts/./img/product/1.jpg" alt="">
+            <div class="pi-links">
+              <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+              <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+            </div>
+          </div>
+          <div class="pi-text">
+            <h6>$35,00</h6>
+            <p>Flamboyant Pink Top </p>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="pi-pic">
+            <div class="tag-new">New</div>
+            <img src="/bshop/views/layouts/./img/product/2.jpg" alt="">
+            <div class="pi-links">
+              <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+              <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+            </div>
+          </div>
+          <div class="pi-text">
+            <h6>$35,00</h6>
+            <p>Black and White Stripes Dress</p>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="pi-pic">
+            <img src="/bshop/views/layouts/./img/product/3.jpg" alt="">
+            <div class="pi-links">
+              <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+              <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+            </div>
+          </div>
+          <div class="pi-text">
+            <h6>$35,00</h6>
+            <p>Flamboyant Pink Top </p>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="pi-pic">
+            <img src="/bshop/views/layouts/./img/product/4.jpg" alt="">
+            <div class="pi-links">
+              <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+              <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+            </div>
+          </div>
+          <div class="pi-text">
+            <h6>$35,00</h6>
+            <p>Flamboyant Pink Top </p>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="pi-pic">
+            <img src="/bshop/views/layouts/./img/product/6.jpg" alt="">
+            <div class="pi-links">
+              <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+              <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+            </div>
+          </div>
+          <div class="pi-text">
+            <h6>$35,00</h6>
+            <p>Flamboyant Pink Top </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- letest product section end -->
+
+
+
+  <!-- Product filter section -->
+  <section class="product-filter-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>SẢN PHẨM BÁN CHẠY NHẤT</h2>
+      </div>
+
+      <div class="row">
+            <?php foreach ($cate as $row) { ?>
+                <div class="col-md-3 mt-3 product-filter-menu">
+                <a href="/bshop/leds/categori/<?php echo $row['id']; ?>" class="btn btn-xs">
+                  <?php echo $row['name']; ?>
+                </a>
+                </div>
+            <?php } ?>
+        </div>
+
+      <div class="row">
+
+
+        <?php foreach ($led as $rowLed) { ?>
+          <div class="col-lg-3 col-sm-6 product-index">
+            <div class="product-item">
+              <div class="pi-pic">
+
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                  <?php foreach ($img as $rowImg) { ?>
+                          <?php if ($rowLed['id'] == $rowImg['led_id']) { ?>
+
+                              <?php $img_name = $rowImg['name']; ?>
+
+                              <div class="carousel-item active">
+                                <a href="/bshop/leds/product/<?php echo $rowLed['id']; ?>">
+                                  <img src="/bshop/views/layouts/img/<?php echo $img_name; ?>" class="thumbnail" alt="<?php echo $img_name; ?>">
+                                </a>                                
+                              </div>
+
+                          <?php } ?>
+                      <?php } ?>
+                  </div>
+              </div>
+
+                <!-- <?php foreach ($img as $rowImg) { ?>
+                  <?php if ($rowLed['id'] == $rowImg['led_id']) { ?>
+
+                    <?php $img_name = $rowImg['name']; ?>
+
+
+                  <?php } ?>
+                <?php } ?> -->
+                <div class="pi-links">
+                  <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                  <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                </div>
+              </div>
+              <div class="pi-text">
+                <h6><?php echo number_format($rowLed['price'], 0, ',', '.'); ?><sup>đ</sup></h6>
+                <p>
+                  <!-- <?php foreach ($cate as $rowCate) { ?> -->
+                    <!-- <?php if ($rowLed['categori_id'] == $rowCate['id']) { ?> -->
+
+                      <?php echo $rowLed['name']; ?>
+
+                    <!-- <?php } ?> -->
+                  <!-- <?php } ?> -->
+                </p>
+              </div>
+            </div>
+          </div>
+        <?php } ?>
+
+      </div>
+      <div class="text-center pt-5">
+        <button class="site-btn sb-line sb-dark">XEM THÊM</button>
+      </div>
+    </div>
+  </section>
+  <!-- Product filter section end -->
+
+
+  <!-- Banner section -->
+  <section class="banner-section">
+    <div class="container">
+      <div class="banner set-bg" data-setbg="img/banner-bg.jpg">
+        <div class="tag-new">MỚI</div>
+        <span>New Arrivals</span>
+        <h2>STRIPED SHIRTS</h2>
+        <a href="#" class="site-btn">SHOP NOW</a>
+      </div>
+    </div>
+  </section>
+  <!-- Banner section end  -->

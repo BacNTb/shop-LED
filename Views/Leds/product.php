@@ -1,0 +1,206 @@
+<!-- Page info -->
+<!-- <?php echo '<pre>'; ?> -->
+<!-- <?php var_dump($img); ?> -->
+<div class="page-top-info">
+    <div class="container">
+        <h4>Chi Tiết Sản Phẩm</h4>
+        <!-- <div class="site-pagination">
+            <a href="">Home</a> /
+            <a href="">Shop</a>
+        </div> -->
+    </div>
+</div>
+<!-- Page info end -->
+
+
+<!-- product section -->
+<section class="product-section">
+    <div class="container">
+        <div class="back-link">
+            <a href="/bshop/leds/categori/all"> &lt;&lt; Trở lại trang sản phẩm</a>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <?php $arrImg = []; ?>
+                <?php foreach ($img as $key => $rowImg) { ?>
+
+                    <?php if ($Led['id'] == $rowImg['led_id']) { ?>
+
+                        <?php $arrImg[] = $rowImg['name']; ?>
+
+                    <?php } ?>
+                <?php } ?>
+
+                <div class="product-pic-zoom">
+                    <img class="product-big-img" src="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
+                </div>
+                <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
+                    <div class="product-thumbs-track">
+
+                        <div class="pt active" data-imgbigurl="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>"><img src="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" alt="<?php echo $arrImg[$i]; ?>"></div>
+                        <?php $totall = count($arrImg); ?>
+
+                        <?php if ($totall > 1) { ?>
+                            <?php for ($i = 1; $i < $totall; $i++) { ?>
+                                <div class="pt" data-imgbigurl="/bshop/views/layouts/img/<?php echo $arrImg[$i]; ?>"><img src="/bshop/views/layouts/img/<?php echo $arrImg[$i]; ?>" alt="<?php echo $arrImg[$i]; ?>"></div>
+                            <?php } ?>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 product-details">
+                <h2 class="p-title"><?php echo $Led['name']; ?></h2>
+                <h3 class="p-price"><?php echo number_format($Led['price'], 0, ',', '.'); ?><sup>đ</sup></h3>
+                <h4 class="p-stock">Tình trạng: <span>Còn hàng</span></h4>
+                <div class="p-rating">
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o fa-fade"></i>
+                </div>
+
+                <div class="p-review">
+                    <a href="">3 Đánh giá</a>|<a href="">Thêm đánh giá</a>
+                </div>
+
+                <div class="quantity">
+                    <p>Quantity</p>
+                    <div class="pro-qty">
+                        <form id="my_form" action="" method="post">
+                            <input id="quantity" type="text" name="quantity" value="1">
+                        </form>
+                    </div>
+                </div>
+
+
+                <!-- <a href="/bshop/leds/cart/<?php echo $Led['id']; ?>" class="site-btn">Giỏ Hàng</a> -->
+                <a href="" id="btn-cart" class="site-btn" onclick="cart();">Giỏ Hàng</a>
+
+                <div id="accordion" class="accordion-area">
+                    <div class="panel">
+                        <div class="panel-header" id="headingOne">
+                            <button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Thông tin sản phẩm</button>
+                        </div>
+                        <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="panel-body">
+                                <p><?php echo $Led['description']; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header" id="headingTwo">
+                            <button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Chi tiết sản phẩm </button>
+                        </div>
+                        <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="panel-body">
+                                <img src="/bshop/views/layouts/img/cards.png" alt="">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header" id="headingThree">
+                            <button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Thanh toán & Giao hàng</button>
+                        </div>
+                        <div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="panel-body">
+                                <h4>7 Days Returns</h4>
+                                <p>Cash on Delivery Available<br>Home Delivery <span>3 - 4 days</span></p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-sharing">
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-pinterest"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- product section end -->
+
+
+<!-- RELATED PRODUCTS section -->
+<section class="related-product-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>SẢN PHẨM LIÊN QUAN </h2>
+        </div>
+        <div class="product-slider owl-carousel">
+            <div class="product-item">
+                <div class="pi-pic">
+                    <img src="/bshop/views/layouts/img/product/1.jpg" alt="">
+                    <div class="pi-links">
+                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                    </div>
+                </div>
+                <div class="pi-text">
+                    <h6>$35,00</h6>
+                    <p>Flamboyant Pink Top </p>
+                </div>
+            </div>
+            <div class="product-item">
+                <div class="pi-pic">
+                    <div class="tag-new">New</div>
+                    <img src="/bshop/views/layouts/img/product/2.jpg" alt="">
+                    <div class="pi-links">
+                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                    </div>
+                </div>
+                <div class="pi-text">
+                    <h6>$35,00</h6>
+                    <p>Black and White Stripes Dress</p>
+                </div>
+            </div>
+            <div class="product-item">
+                <div class="pi-pic">
+                    <img src="/bshop/views/layouts/./img/product/3.jpg" alt="">
+                    <div class="pi-links">
+                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                    </div>
+                </div>
+                <div class="pi-text">
+                    <h6>$35,00</h6>
+                    <p>Flamboyant Pink Top </p>
+                </div>
+            </div>
+            <div class="product-item">
+                <div class="pi-pic">
+                    <img src="/bshop/views/layouts/img/product/4.jpg" alt="">
+                    <div class="pi-links">
+                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                    </div>
+                </div>
+                <div class="pi-text">
+                    <h6>$35,00</h6>
+                    <p>Flamboyant Pink Top </p>
+                </div>
+            </div>
+            <div class="product-item">
+                <div class="pi-pic">
+                    <img src="/bshop/views/layouts/img/product/6.jpg" alt="">
+                    <div class="pi-links">
+                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                    </div>
+                </div>
+                <div class="pi-text">
+                    <h6>$35,00</h6>
+                    <p>Flamboyant Pink Top </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- RELATED PRODUCTS section end -->
