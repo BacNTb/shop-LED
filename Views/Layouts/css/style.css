@@ -945,7 +945,6 @@ ol {
 
 .product-filter-menu {
 	list-style: none;
-	margin: 0 -10px;
 	padding-bottom: 15px;
 }
 
@@ -963,7 +962,16 @@ ol {
 	display: block;
 	width: 100%;
 	padding: 10px 34px;
-	border-radius: 31px;
+	border-radius: 20px;
+}
+
+.product-filter-menu-a {
+	padding: 0 0 20px;
+}
+
+.product-filter-menu-a a {
+	text-align: left;
+	border-radius: 5px;
 }
 
 /* ----------------
@@ -1519,7 +1527,7 @@ ol {
 
 .product-big-img {
 	width: 600px;
-	height: 450px;
+	height: 350px;
 	object-fit: cover;
 }
 

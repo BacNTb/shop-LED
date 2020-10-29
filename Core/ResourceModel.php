@@ -103,4 +103,14 @@ class ResourceModel implements ResourceModelInterFace
             return  $req->fetch();
         }
     }
+
+    public function showTop5() {
+        $sql =  "SELECT * FROM $this->table ORDER BY create_at DESC LIMIT 5";
+
+        $req = Database::getBdd()->prepare($sql);
+
+        if($req->execute()) {
+            return $req->fetchAll();
+        }
+    }
 }

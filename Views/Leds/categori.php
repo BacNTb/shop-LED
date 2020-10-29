@@ -46,7 +46,7 @@
 									</div>
 								</div>
 								<div class="pi-links">
-									<a href="/bshop/leds/cart/<?php echo $rowLed['id']; ?>" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+									<a href="/bshop/leds/cart/<?php echo $rowLed['id'];?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 									<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 								</div>
 							</div>
@@ -60,9 +60,9 @@
 						</div>
 					<?php } ?>
 
-					<div class="text-center w-100 pt-3">
+					<!-- <div class="text-center w-100 pt-3">
 						<button class="site-btn sb-line sb-dark">XEM THÊM</button>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

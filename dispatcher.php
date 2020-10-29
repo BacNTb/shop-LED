@@ -1,12 +1,10 @@
 <?php
-
 namespace Mvc;
 
 use Mvc\request;
 
 use Mvc\Router;
 
-use Mvc\Controllers\tasksController;
 
 class Dispatcher
 {

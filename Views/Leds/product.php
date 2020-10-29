@@ -1,13 +1,7 @@
 <!-- Page info -->
-<!-- <?php echo '<pre>'; ?> -->
-<!-- <?php var_dump($img); ?> -->
 <div class="page-top-info">
     <div class="container">
         <h4>Chi Tiết Sản Phẩm</h4>
-        <!-- <div class="site-pagination">
-            <a href="">Home</a> /
-            <a href="">Shop</a>
-        </div> -->
     </div>
 </div>
 <!-- Page info end -->
@@ -73,8 +67,6 @@
                     </div>
                 </div>
 
-
-                <!-- <a href="/bshop/leds/cart/<?php echo $Led['id']; ?>" class="site-btn">Giỏ Hàng</a> -->
                 <a href="" id="btn-cart" class="site-btn" onclick="cart();">Giỏ Hàng</a>
 
                 <div id="accordion" class="accordion-area">
@@ -134,73 +126,40 @@
             <h2>SẢN PHẨM LIÊN QUAN </h2>
         </div>
         <div class="product-slider owl-carousel">
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="/bshop/views/layouts/img/product/1.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Flamboyant Pink Top </p>
-                </div>
+
+        <?php foreach ($top as $rowTop) { ?>
+          <?php $arrImg = []; ?>
+            <?php foreach ($img as $key => $rowImg) { ?>
+
+                <?php if ($rowTop['id'] == $rowImg['led_id']) { ?>
+
+                    <?php $arrImg[] = $rowImg['name']; ?>
+
+              <?php } ?>
+          <?php } ?>
+          <div class="product-item">
+            <div class="pi-pic">
+
+              <div class="tag-new">New</div>
+                    <img class="product-big-img" src="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
+
+              <div class="pi-links">
+                <a href="/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+              </div>
             </div>
-            <div class="product-item">
-                <div class="pi-pic">
-                    <div class="tag-new">New</div>
-                    <img src="/bshop/views/layouts/img/product/2.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Black and White Stripes Dress</p>
-                </div>
+            <div class="pi-text">
+              <h6><?php echo number_format($rowTop['price'], 0, ',', '.'); ?><sup>đ</sup></h6>
+              <p><?php echo $rowTop['name']; ?></p>
             </div>
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="/bshop/views/layouts/./img/product/3.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Flamboyant Pink Top </p>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="/bshop/views/layouts/img/product/4.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Flamboyant Pink Top </p>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="/bshop/views/layouts/img/product/6.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Flamboyant Pink Top </p>
-                </div>
-            </div>
-        </div>
+          </div>
+
+        <?php } ?>
+
+
+
+
+      </div>
     </div>
 </section>
 <!-- RELATED PRODUCTS section end -->

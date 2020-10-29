@@ -22,6 +22,10 @@ use Mvc\Models\ImgModel;
 
 use Mvc\Models\ImgRepository;
 
+use Mvc\PHPMailer\PHPMailer;
+
+use Mvc\PHPMailer\Exception;
+
 class LedsController extends Controller
 {
 
@@ -38,6 +42,9 @@ class LedsController extends Controller
         $d['led'] = $this->LedRepository->showAll($newLed);
         $this->set($d);
 
+        $d['top'] = $this->LedRepository->showTop5($newLed);
+        $this->set($d);
+
         $newCate = new CateModel();
         $rep = new CateRepository();
         $d['cate'] = $rep->showAll($newCate);;
@@ -52,13 +59,77 @@ class LedsController extends Controller
     }
 
 
-    function login()
-    {
-        $this->render("login");
-    }
-
     function contact()
     {
+        if(isset($_POST['toAddress'])) {
+
+            if(empty($_POST['addReplyTo'])) {
+                echo 'nhap Email của bạn';
+
+            } elseif(empty($_POST['title'])) {
+                echo 'nhap tieu de';
+
+            } elseif(empty($_POST['content'])) {
+                echo 'nhap noi dung';
+
+            } else {
+                // echo $_POST['toAddress'];
+                // echo '</br>';
+                // echo $_POST['title'];
+                // echo '</br>';
+                // echo $_POST['content'];
+
+                $mail = new PHPMailer(true);               
+                try {
+                    $mail->CharSet = "UTF-8";
+                    $mail->SMTPDebug = 0;                     
+                    $mail->isSMTP();                              
+                    $mail->Host = 'smtp.gmail.com';  
+                    $mail->SMTPAuth = true;                         
+                    $mail->Username = 'bacnt99@gmail.com';             
+                    $mail->Password = 'Nthebac99';                    
+                    $mail->SMTPSecure = 'ssl';                        
+                    $mail->Port = '465';      
+
+                    $mail->setFrom('bacnt99@gmail.com', "Khách Hàng");
+                    $mail->addAddress($_POST['toAddress'], 'Email người nhận');    
+                    $mail->addReplyTo($_POST['addReplyTo'], 'Email khách hàng');
+                //    $mail->addCC('CCemail@gmail.com');
+                //    $mail->addBCC('BCCemail@gmail.com');
+                    $mail->isHTML(true);                              
+                    $mail->Subject = $_POST['title'];
+                    $mail->Body = $_POST['content'] . ' ' . $_POST['addReplyTo'];
+                    $mail->AltBody = $_POST['content']; 
+                    $result = $mail->send();
+                    if ($result) {
+                        $d['erow'] = "Có lỗi xảy ra trong quá trình gửi mail";
+                        $this->set($d);
+
+                    }
+                } catch (Exception $e) {
+                    echo 'Lỗi. Mailer Error: ', $mail->ErrorInfo;
+                }
+            }
+
+        }
+
+        $newLed = new LedModel();
+        $d['led'] = $this->LedRepository->showAll($newLed);
+        $this->set($d);
+
+        $d['top'] = $this->LedRepository->showTop5($newLed);
+        $this->set($d);
+
+        $newCate = new CateModel();
+        $rep = new CateRepository();
+        $d['cate'] = $rep->showAll($newCate);;
+        $this->set($d);
+
+        $newImg = new ImgModel();
+        $req = new ImgRepository();
+        $d['img'] = $req->showAll($newImg);;
+        $this->set($d);
+
         $this->render("contact");
     }
 
@@ -119,6 +190,8 @@ class LedsController extends Controller
                 }
             }
         } else {
+            $_SESSION['cart']['all'] = 1;
+
 
             $_SESSION['cart'][$id] = 1;
             $_SESSION['quantity'][$id] = $quantity;
@@ -244,6 +317,9 @@ class LedsController extends Controller
         $Led = new LedModel();
         $Led->setId($id);
         $d["Led"] = $this->LedRepository->getId($id);
+        $this->set($d);
+
+        $d['top'] = $this->LedRepository->showTop5($Led);
         $this->set($d);
 
         $newCate = new CateModel();
