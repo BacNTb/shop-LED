@@ -13,7 +13,8 @@ use Mvc\Models\LedRepository;
 use Mvc\Models\CateModel;
 
 use Mvc\Models\CateRepository;
-
+use Mvc\Models\CheckoutModel;
+use Mvc\Models\CheckoutRepository;
 use Mvc\Models\CustommerModel;
 
 use Mvc\Models\CustommerRepository;
@@ -96,7 +97,7 @@ class LedsController extends Controller
                     $mail->AltBody = $_POST['content']; 
                     $result = $mail->send();
                     if (!$result) {
-                        $d['error'] = "false";
+                        $d['error'] = "Lỗi trong quá trình gửi Mail !";
 
                     } else {
                         $d['error'] = "true";
@@ -223,6 +224,9 @@ class LedsController extends Controller
             }
             $this->set($d);
 
+            $d['top'] = $this->LedRepository->showTop5($Led);
+            $this->set($d);
+
             $newCate = new CateModel();
             $rep = new CateRepository();
             $d['cate'] = $rep->showAll($newCate);;
@@ -240,34 +244,20 @@ class LedsController extends Controller
 
     function checkout()
     {
-        
-        if (isset($_POST['quantity'])) {
-            $quantity = $_POST['quantity'];
-            $price = $_POST['price'];
-    
-            $address = $_POST["village"] . '-' . $_POST["district"] . '-' . $_POST["city"];
-            foreach ($quantity as $id => $value) {
-             
-                $Cus = new CustommerModel();
-                $req = new CustommerRepository();
-    
-                $Cus->setName($_POST["name"]);
-                $Cus->setLed_id($id);
-                $Cus->setCount($value);
-                $Cus->setPrice($price);
-                $Cus->setAddress($address);
-                $Cus->setTell($_POST["tell"]);
-                $Cus->setCreate_at($_POST["create_at"]);
-    
-                $req->add($Cus);                         
-            }
-            if($req->add($Cus)) {
-                unset($_SESSION['cart']);
-            }
+        $Led = new LedModel();
 
-            $this->index();
+        $d['top'] = $this->LedRepository->showTop5($Led);
+        $this->set($d);
 
-        }
+        $newCate = new CateModel();
+        $rep = new CateRepository();
+        $d['cate'] = $rep->showAll($newCate);;
+        $this->set($d);
+
+        $newImg = new ImgModel();
+        $req = new ImgRepository();
+        $d['img'] = $req->showAll($newImg);;
+        $this->set($d);
 
         
         if(isset($_SESSION['cart'])) {
@@ -279,7 +269,6 @@ class LedsController extends Controller
                 $arrId[] = $id;
             }
 
-            $Led = new LedModel();
             $Led->setId($id);
             $arrLed = $this->LedRepository->showAll($Led);
 
@@ -296,19 +285,69 @@ class LedsController extends Controller
             }
 
             $this->set($d);
-
-            $newCate = new CateModel();
-            $rep = new CateRepository();
-            $d['cate'] = $rep->showAll($newCate);;
-            $this->set($d);
-
-            $newImg = new ImgModel();
-            $req = new ImgRepository();
-            $d['img'] = $req->showAll($newImg);;
-            $this->set($d);
-
-            $this->render("checkout");
         }
+        
+        if (isset($_POST['name'])) {
+
+            $quantitys = $_POST['quantity'];
+            $prices = $_POST['price'];
+            $priceOnes = $_POST['priceone'];
+    
+            $address = $_POST["village"] . '-' . $_POST["district"] . '-' . $_POST["city"];
+            
+            $Cus = new CustommerModel();
+            $req = new CustommerRepository();
+            
+            $Cus->setName($_POST["name"]);
+            $Cus->setAddress($address);
+            $Cus->setEmail($_POST["email"]);
+            $Cus->setTell($_POST["tell"]);
+            $Cus->setCreate_at(date("Y-m-d h:i:s"));
+
+            if ($req->add($Cus)) {
+                $conn = new Database();
+
+                $cus_id = $conn->getBdd()->lastInsertId();
+
+                foreach ($quantitys as $keyQuantity => $valueQuantity) {
+                    foreach ($prices as $keyPrice => $valuePrice) {
+                        if($keyQuantity == $keyPrice) {
+                            $quantity = $valueQuantity;
+                            
+                            foreach ($priceOnes as $keyPriceOne => $valuePriceOne) {
+                                if($keyPrice == $keyPriceOne) {
+                                    $priceOne = $valuePriceOne;
+                                    $price = $valuePrice;
+                                }
+                            }
+                        }
+                    }
+
+                    $Check = new CheckoutModel();
+                    $rep = new CheckoutRepository();
+                    
+                    $Check->setLed_id($keyQuantity);
+                    $Check->setCus_id($cus_id);
+                    $Check->setCount($quantity);
+                    $Check->setPrice($priceOne);
+                    $Check->setTotal_price($price);
+                    $Check->setCreate_at(date("Y-m-d h:i:s"));
+
+                    $result = $rep->add($Check);
+                }
+                
+                if($result) {
+                    unset($_SESSION['cart']);
+                    
+                    $d['notification'] = "Đã đặt hàng thành công !";
+                    $this->set($d);
+
+                }
+
+            }
+        }
+
+        $this->render("checkout");
     }
 
     function product($id)

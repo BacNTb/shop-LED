@@ -47,18 +47,18 @@
 							<img src="/bshop/views/layouts/img/your-logo.png" alt="">
 						</a>
 					</div>
-					<div class="col-xl-6 col-lg-5">
+					<div class="col-xl-8">
 						<form class="header-search-form">
 							<input type="text" placeholder="Tìm kiếm ....">
 							<button><i class="flaticon-search"></i></button>
 						</form>
 					</div>
-					<div class="col-xl-4 col-lg-5">
-						<div class="user-panel">
-							<div class="up-item">
+					<div class="col-lg-2">
+						<div class="user-panel text-lg-right">
+							<!-- <div class="up-item">
 								<i class="flaticon-profile"></i>
 								<a href="#">Đăng nhập</a> hoặc <a href="#">Tạo tài khoản</a>
-							</div>
+							</div> -->
 							<div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>

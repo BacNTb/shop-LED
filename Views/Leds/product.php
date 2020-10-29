@@ -127,39 +127,36 @@
         </div>
         <div class="product-slider owl-carousel">
 
-        <?php foreach ($top as $rowTop) { ?>
-          <?php $arrImg = []; ?>
-            <?php foreach ($img as $key => $rowImg) { ?>
+            <?php foreach ($top as $rowTop) { ?>
+                <?php $arrImg = []; ?>
+                <?php foreach ($img as $key => $rowImg) { ?>
 
-                <?php if ($rowTop['id'] == $rowImg['led_id']) { ?>
+                    <?php if ($rowTop['id'] == $rowImg['led_id']) { ?>
 
-                    <?php $arrImg[] = $rowImg['name']; ?>
+                        <?php $arrImg[] = $rowImg['name']; ?>
 
-              <?php } ?>
-          <?php } ?>
-          <div class="product-item">
-            <div class="pi-pic">
+                    <?php } ?>
+                <?php } ?>
+                <div class="product-item">
+                    <div class="pi-pic">
 
-              <div class="tag-new">New</div>
-                    <img class="product-big-img" src="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
+                        <div class="tag-new">New</div>
+                        <img class="product-big-img" src="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
 
-              <div class="pi-links">
-                <a href="/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-              </div>
-            </div>
-            <div class="pi-text">
-              <h6><?php echo number_format($rowTop['price'], 0, ',', '.'); ?><sup>đ</sup></h6>
-              <p><?php echo $rowTop['name']; ?></p>
-            </div>
-          </div>
+                        <div class="pi-links">
+                            <a href="/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="pi-text">
+                        <h6><?php echo number_format($rowTop['price'], 0, ',', '.'); ?><sup>đ</sup></h6>
+                        <p><?php echo $rowTop['name']; ?></p>
+                    </div>
+                </div>
 
-        <?php } ?>
+            <?php } ?>
 
-
-
-
-      </div>
+        </div>
     </div>
 </section>
 <!-- RELATED PRODUCTS section end -->

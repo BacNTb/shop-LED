@@ -1,39 +1,39 @@
   <!-- Hero section -->
   <section class="hero-section">
     <div class="hero-slider owl-carousel">
-      <div class="hs-item set-bg" data-setbg="/bshop/views/layouts/img/ledpanel_banner.gif">
+      <div class="hs-item set-bg" data-setbg="/bshop/views/layouts/img/images.jpg">
         <div class="container">
           <div class="row">
             <div class="col-xl-6 col-lg-7 text-white">
-              <span>New Arrivals</span>
-              <h2>denim jackets</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+              <span>Sản phẩm mới</span>
+              <h2>Đèn led BB</h2>
+              <p>Mùa mưa bão đang đến, nếu khách chưa tìm được loại đèn thích hợp hãy đến với đèn đường LED Dragon</p>
               <a href="#" class="site-btn sb-line">XEM</a>
               <a href="#" class="site-btn sb-white">THÊM VÀO GIỎ HÀNG</a>
             </div>
           </div>
           <div class="offer-card text-white">
-            <span>from</span>
-            <h2>$29</h2>
-            <p>SHOP NOW</p>
+            <span>CHỈ TỪ</span>
+            <h5>990.000<sup>đ</sup></h5>
+            <p>MUA NGAY</p>
           </div>
         </div>
       </div>
-      <div class="hs-item set-bg" data-setbg="/bshop/views/layouts/img/ledpanel_banner.gif">
+      <div class="hs-item set-bg" data-setbg="/bshop/views/layouts/img/unnamed.jpg">
         <div class="container">
           <div class="row">
             <div class="col-xl-6 col-lg-7 text-white">
-              <span>New Arrivals</span>
-              <h2>denim jackets</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+              <span>Sản phẩm mới</span>
+              <h2>Đèn led BB</h2>
+              <p>Mùa mưa bão đang đến, nếu khách chưa tìm được loại đèn thích hợp hãy đến với đèn đường LED Dragon</p>
               <a href="#" class="site-btn sb-line">XEM</a>
               <a href="#" class="site-btn sb-white">THÊM VÀO GIỎ HÀNG</a>
             </div>
           </div>
           <div class="offer-card text-white">
-            <span>from</span>
-            <h2>$29</h2>
-            <p>SHOP NOW</p>
+            <span>CHỈ TỪ</span>
+            <h5>990.000<sup>đ</sup></h5>
+            <p>MUA NGAY</p>
           </div>
         </div>
       </div>
@@ -159,11 +159,17 @@
 
         <?php foreach ($cate as $rowCate) { ?>
 
-          <div class="col-md-12">
-            <div class="col-md-12 product-filter-menu product-filter-menu-a">
-              <p class="lead">
-                <a class="btn btn-primary btn-lg" href="/bshop/leds/categori/<?php echo $rowCate['id']; ?>" role="button"><?php echo $rowCate['name']; ?></a>
-              </p>
+          <div class="col-md-12 product-heading">
+            <div class="heading">
+              <div class="heading-title">
+                <a href="/bshop/leds/categori/<?php echo $rowCate['id']; ?>" role="button">
+                  <h2>
+                      <span>                  
+                        <?php echo $rowCate['name']; ?>
+                      </span>
+                  </h2>
+                </a>
+              </div>
             </div>
 
             <div class="row">

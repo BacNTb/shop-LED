@@ -6,11 +6,9 @@ use Mvc\Core\Model;
 class CustommerModel extends Model
 {
     protected $id;
-    protected $led_id;
-    protected $count;
-    protected $price;
     protected $name;
     protected $address;
+    protected $email;
     protected $tell;
     protected $create_at;
     protected $update_at;
@@ -32,46 +30,6 @@ class CustommerModel extends Model
     public function setId($id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-        /**
-     * Get the value of led_id
-     */ 
-    public function getLed_id()
-    {
-        return $this->led_id;
-    }
-
-    /**
-     * Set the value of led_id
-     *
-     * @return  self
-     */ 
-    public function setLed_id($led_id)
-    {
-        $this->led_id = $led_id;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of count
-     */ 
-    public function getCount()
-    {
-        return $this->count;
-    }
-
-    /**
-     * Set the value of count
-     *
-     * @return  self
-     */ 
-    public function setCount($count)
-    {
-        $this->count = $count;
 
         return $this;
     }
@@ -180,22 +138,23 @@ class CustommerModel extends Model
         return $this;
     }
 
+
     /**
-     * Get the value of price
+     * Get the value of email
      */ 
-    public function getPrice()
+    public function getEmail()
     {
-        return $this->price;
+        return $this->email;
     }
 
     /**
-     * Set the value of price
+     * Set the value of email
      *
      * @return  self
      */ 
-    public function setPrice($price)
+    public function setEmail($email)
     {
-        $this->price = $price;
+        $this->email = $email;
 
         return $this;
     }

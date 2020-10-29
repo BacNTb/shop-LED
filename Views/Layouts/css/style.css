@@ -595,10 +595,11 @@ ol {
 	opacity: 0;
 }
 
-.hero-slider .hs-item .offer-card h2 {
-	font-size: 72px;
+.hero-slider .hs-item .offer-card h5 {
+	font-size: 32px;
 	font-weight: 400;
 	line-height: 1;
+	padding-bottom: 15px;
 }
 
 .hero-slider .hs-item .offer-card p {
@@ -818,7 +819,7 @@ ol {
 }
 
 .product-index {
-	margin-bottom: 60px;
+	margin-bottom: 70px;
 }
 
 .product-item .pi-pic {
@@ -2212,6 +2213,47 @@ ol {
 	height: 100%;
 }
 
+.product-heading .heading {
+	background: #fff;
+	width: 100%;
+	display: inline-block;
+	border-bottom: 2px solid #0069d9;
+	margin-bottom: 20px;
+	border-radius: 0 0 0 8px;
+}
+	
+.product-heading .heading-title {
+	background: #0069d9;
+	float: left;
+	margin-right: 50px;
+	position: relative;
+	border-radius: 5px 0 0 5px;
+}
+	
+.product-heading .heading-title:after {
+	content: "";
+	float: left;
+	position: absolute;
+	top: 0;
+	right: -44px;
+	width: 0;
+	height: 0;
+	border-color: transparent transparent #0069d9 transparent;
+	border-style: solid;
+	border-width: 0 44px 44px 0;
+}
+
+.product-heading .heading-title h2 {
+	min-width: 220px;
+}
+
+.product-heading .heading-title span {
+	font-size: 16px;
+	padding: 0 30px;
+	color: #fff;
+	min-width: 260px;
+}
+
 /* ----------------
   Responsive
 ---------------------*/
@@ -2452,3 +2494,4 @@ ol {
 		display: none;
 	}
 }
+

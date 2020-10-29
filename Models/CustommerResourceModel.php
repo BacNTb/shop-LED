@@ -7,6 +7,6 @@ use Mvc\Models\CustommerModel;
 
 class CustommerResourceModel extends ResourceModel {
     public function __construct(){
-        $this->_init("custommer","",new CustommerModel());
+        $this->_init("custummer","",new CustommerModel());
     }
 }
