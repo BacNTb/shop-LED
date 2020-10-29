@@ -64,21 +64,15 @@ class LedsController extends Controller
         if(isset($_POST['toAddress'])) {
 
             if(empty($_POST['addReplyTo'])) {
-                echo 'nhap Email của bạn';
+                $d['error'] = "Vui lòng nhập Email của bạn !";
 
             } elseif(empty($_POST['title'])) {
-                echo 'nhap tieu de';
+                $d['error'] = "Vui lòng nhập tiêu đề Email của bạn !";
 
             } elseif(empty($_POST['content'])) {
-                echo 'nhap noi dung';
+                $d['error'] = "Vui lòng nhập nội dung Email của bạn !";
 
             } else {
-                // echo $_POST['toAddress'];
-                // echo '</br>';
-                // echo $_POST['title'];
-                // echo '</br>';
-                // echo $_POST['content'];
-
                 $mail = new PHPMailer(true);               
                 try {
                     $mail->CharSet = "UTF-8";
@@ -98,16 +92,21 @@ class LedsController extends Controller
                 //    $mail->addBCC('BCCemail@gmail.com');
                     $mail->isHTML(true);                              
                     $mail->Subject = $_POST['title'];
-                    $mail->Body = $_POST['content'] . ' ' . $_POST['addReplyTo'];
+                    $mail->Body = $_POST['content'];
                     $mail->AltBody = $_POST['content']; 
                     $result = $mail->send();
-                    if ($result) {
-                        $d['erow'] = "Có lỗi xảy ra trong quá trình gửi mail";
-                        $this->set($d);
+                    if (!$result) {
+                        $d['error'] = "false";
+
+                    } else {
+                        $d['error'] = "true";
 
                     }
+
+                    $this->set($d);
+
                 } catch (Exception $e) {
-                    echo 'Lỗi. Mailer Error: ', $mail->ErrorInfo;
+                    echo 'Lỗi không thực hiện được: ', $mail->ErrorInfo;
                 }
             }
 

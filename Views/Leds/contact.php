@@ -21,33 +21,45 @@
                 <p>+123 4567890</p>
                 <p>ntbaccntt@gmail.com</p>
                 <div class="contact-social">
-                    <a href="#"><i class="fa fa-pinterest"></i></a>
                     <a href="https://www.facebook.com/nguyen.thebac.ntb/"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
                     <a href="#"><i class="fa fa-twitter"></i></a>
                     <a href="#"><i class="fa fa-dribbble"></i></a>
                     <a href="#"><i class="fa fa-behance"></i></a>
                 </div>
-                <h3>Gửi Mail cho chúng tôi !</h3>
+                <h3 class="send-mail">Gửi Mail cho chúng tôi !</h3>
 
-                <?php if (isset($erow)) {
-                    var_export($erow);
-                }
+                <?php if (isset($error)) { ?>
+                    <?php if($error == 'true') { ?>
+                        <h5 class="text-danger">Gửi Mail thành công !</h5>
+                        <!-- <div class="back-link mt-2">
+                            <a href="/bshop/leds/contact"> &lt;&lt; Gửi thêm Mail !</a>
+                        </div> -->
 
-                ?>
+                    <?php } else { ?>
+                        <h5 class="text-warning"><?php echo $error;?></h5>
+                        <!-- <div class="back-link mt-2">
+                            <a href="/bshop/leds/contact"> &lt;&lt; Gửi lại Mail !</a>
+                        </div> -->
+
+                    <?php } ?>
+                <?php } ?>
 
                 <form class="contact-form" method="post">
-                    <input name="toAddress" type="hidden" value="ntbaccntt@gmail.com">
-                    <input name="addReplyTo" type="email" placeholder="Email của bạn ...">
-                    <input name="title" type="text" placeholder="Tiêu đề ...">
-                    <!-- <input type="text" placeholder="Nội dung">
-                    <input type="text" placeholder="Subject"> -->
-                    <textarea name="content" placeholder="Nội dung tin nhắn ..."></textarea>
+                    <input name="toAddress" type="hidden" value="ntbaccntt@gmail.com" require>
+                    <input name="addReplyTo" type="email" placeholder="Email của bạn ..." require>
+                    <input name="title" type="text" placeholder="Tiêu đề ..." require>
+                    <textarea name="content" placeholder="Nội dung tin nhắn ..." require></textarea>
                     <button class="site-btn">GỬI TIN</button>
                 </form>
             </div>
+            <div class="col-lg-6">
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.7347224252085!2d105.8472392144542!3d21.00326829402504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad58455db2ab%3A0x9b3550bc22fd8bb!2zNTQgTMOqIFRoYW5oIE5naOG7iywgQsOhY2ggS2hvYSwgSGFpIELDoCBUcsawbmcsIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1603028146236!5m2!1svi!2s" width="500" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+
+            </div>
         </div>
-    </div>
-    <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.7347224252085!2d105.8472392144542!3d21.00326829402504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad58455db2ab%3A0x9b3550bc22fd8bb!2zNTQgTMOqIFRoYW5oIE5naOG7iywgQsOhY2ggS2hvYSwgSGFpIELDoCBUcsawbmcsIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1603028146236!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
 </section>
 <!-- Contact section end -->
@@ -57,7 +69,7 @@
 <section class="related-product-section spad">
     <div class="container">
         <div class="section-title">
-            <h2>Your Favorites</h2>
+            <h2>SẢN PHẨM NỔI BẬT</h2>
         </div>
         <div class="product-slider owl-carousel">
 
