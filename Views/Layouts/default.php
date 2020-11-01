@@ -110,14 +110,14 @@
 	<section class="footer-section">
 		<div class="container">
 			<div class="footer-logo text-center">
-				<a href="index.html"><img src="/shop/bshop/views/layouts/img/your-logo-f.png" alt=""></a>
+				<a href="/shop/bshop/"><img style="width: fit-content;" src="/shop/bshop/views/layouts/img/your-logo-f.png" alt=""></a>
 			</div>
 			<div class="row">
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget about-widget">
 						<h2>Thông Tin</h2>
 						<p>Donec vitae purus nunc. Morbi faucibus erat sit amet congue mattis. Nullam frin-gilla faucibus urna, id dapibus erat iaculis ut. Integer ac sem.</p>
-						<img src="img/cards.png" alt="">
+						<img src="/shop/bshop/views/layouts/img/cards.png" alt="">
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">

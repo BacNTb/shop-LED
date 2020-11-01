@@ -139,11 +139,29 @@ class LedsController extends Controller
 
     function categori($id)
     {
+        $newCate = new CateModel();
+        $rep = new CateRepository();
+        $d['cate'] = $rep->showAll($newCate);;
+        $this->set($d);
+
+        $newImg = new ImgModel();
+        $req = new ImgRepository();
+        $d['img'] = $req->showAll($newImg);;
+        $this->set($d);
+
         $newLed = new LedModel();
+
+        $d['top'] = $this->LedRepository->showTop5($newLed);
+        $this->set($d);
 
         if ($id == 'all') {
             $newLed = new LedModel();
             $d['led'] = $this->LedRepository->showAllLed($newLed);
+            $this->set($d);
+
+            $d['message'] = 'Tất Cả Sản Phẩm';
+            $this->set($d);
+
         } else {
             $arr = $this->LedRepository->showAllLed($newLed);
 
@@ -155,18 +173,12 @@ class LedsController extends Controller
                     $d['led'][$key] = $value;
                 }
             }
+
+            $this->set($d);
+
+            $d['cateMessage'] = $rep->getId($id);
+            $this->set($d);
         }
-        $this->set($d);
-
-        $newCate = new CateModel();
-        $rep = new CateRepository();
-        $d['cate'] = $rep->showAll($newCate);;
-        $this->set($d);
-
-        $newImg = new ImgModel();
-        $req = new ImgRepository();
-        $d['img'] = $req->showAll($newImg);;
-        $this->set($d);
 
         $this->render("categori");
     }

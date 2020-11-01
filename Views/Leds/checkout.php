@@ -111,7 +111,7 @@
                                             <li>
                                                 <input id="ledId" type="hidden" name="quantity[<?php echo $rowLed['id']; ?>]" value="<?php echo $_SESSION['quantity'][$rowLed['id']]; ?>">
                                                 <div class="pl-thumb">
-                                                    <img src="/shop/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" alt="<?php echo $arrImg['0']; ?>">
+                                                    <img src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" alt="<?php echo $arrImg['0']; ?>">
                                                 </div>
                                                 <h6><?php echo $rowLed['name']; ?></h6>
                                                 <input id="priceIdOne" type="hidden" name="priceone[<?php echo $rowLed['id']; ?>]" value="<?php echo $rowLed['price']; ?>">
@@ -172,7 +172,7 @@
                         <a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
                             <img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
                         </a>
-                        
+
                         <div class="pi-links">
                             <a href="/shop/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
                             <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>

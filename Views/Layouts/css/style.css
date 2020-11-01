@@ -932,6 +932,7 @@ ol {
 	font-size: 16px;
 	color: #111111;
 	margin-bottom: 0;
+	text-transform: capitalize;
 }
 
 .carousel-inner-img {
@@ -1256,11 +1257,20 @@ ol {
 }
 
 .filter-widget .fw-title {
-	font-size: 18px;
+	font-size: 22px;
 	font-weight: 700;
 	color: #414141;
 	text-transform: uppercase;
 	margin-bottom: 45px;
+}
+
+.order-1 .fw-title {
+	font-size: 22px;
+	font-weight: 700;
+	color: #414141;
+	text-transform: uppercase;
+	margin-bottom: 45px;
+	text-align: center;
 }
 
 .category-menu {

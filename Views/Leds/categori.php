@@ -18,11 +18,18 @@
 					</ul>
 				</div>
 			</div>
-
 			<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
+				<h2 class="fw-title">
+					<?php if (isset($message)) {
+						echo $message;
+					} else {
+						echo $cateMessage['name'];
+					}
+					?>
+				</h2>
+
 				<div class="row">
 					<?php foreach ($led as $rowLed) { ?>
-						<!-- <?php echo $rowLed['id']; ?> -->
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
@@ -66,3 +73,47 @@
 	</div>
 </section>
 <!-- Category section end -->
+
+<!-- letest product section -->
+<section class="top-letest-product-section">
+	<div class="container">
+		<div class="section-title">
+			<h2>SẢN PHẨM MỚI NHẤT</h2>
+		</div>
+		<div class="product-slider owl-carousel">
+
+			<?php foreach ($top as $rowTop) { ?>
+				<?php $arrImg = []; ?>
+				<?php foreach ($img as $key => $rowImg) { ?>
+
+					<?php if ($rowTop['id'] == $rowImg['led_id']) { ?>
+
+						<?php $arrImg[] = $rowImg['name']; ?>
+
+					<?php } ?>
+				<?php } ?>
+				<div class="product-item">
+					<div class="pi-pic">
+
+						<div class="tag-new">New</div>
+						<a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
+							<img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
+						</a>
+
+						<div class="pi-links">
+							<a href="/shop/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6><?php echo number_format($rowTop['price'], 0, ',', '.'); ?><sup>đ</sup></h6>
+						<p><?php echo $rowTop['name']; ?></p>
+					</div>
+				</div>
+
+			<?php } ?>
+
+		</div>
+	</div>
+</section>
+<!-- letest product section end -->

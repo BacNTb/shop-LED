@@ -55,7 +55,7 @@
                                                 <tr>
                                                     <td class="product-col">
                                                         <div class="img">
-                                                            <img src="/shop/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" alt="<?php echo $arrImg['0']; ?>">
+                                                            <img src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" alt="<?php echo $arrImg['0']; ?>">
                                                         </div>
 
                                                         <div class="pc-title">
@@ -127,7 +127,7 @@
                     <div class="pi-pic">
 
                         <div class="tag-new">New</div>
-                        <img class="product-big-img" src="/shop/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
+                        <img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
 
                         <div class="pi-links">
                             <a href="/shop/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
