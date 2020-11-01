@@ -33,13 +33,13 @@
                     <?php if($error == 'true') { ?>
                         <h5 class="text-danger">Gửi Mail thành công !</h5>
                         <!-- <div class="back-link mt-2">
-                            <a href="/bshop/leds/contact"> &lt;&lt; Gửi thêm Mail !</a>
+                            <a href="/shop/bshop/leds/contact"> &lt;&lt; Gửi thêm Mail !</a>
                         </div> -->
 
                     <?php } else { ?>
                         <h5 class="text-warning"><?php echo $error;?></h5>
                         <!-- <div class="back-link mt-2">
-                            <a href="/bshop/leds/contact"> &lt;&lt; Gửi lại Mail !</a>
+                            <a href="/shop/bshop/leds/contact"> &lt;&lt; Gửi lại Mail !</a>
                         </div> -->
 
                     <?php } ?>
@@ -85,11 +85,12 @@
                 <?php } ?>
                 <div class="product-item">
                     <div class="pi-pic">
-                        <div class="tag-new">New</div>
-                        <img class="product-big-img" src="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
-
+                        <a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
+                            <img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
+                        </a>
+                        
                         <div class="pi-links">
-                            <a href="/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                            <a href="/shop/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
                             <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
                         </div>
                     </div>

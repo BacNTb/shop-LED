@@ -14,14 +14,14 @@
 
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="/bshop/views/layouts/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="/bshop/views/layouts/css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="/bshop/views/layouts/css/flaticon.css"/>
-	<link rel="stylesheet" href="/bshop/views/layouts/css/slicknav.min.css"/>
-	<link rel="stylesheet" href="/bshop/views/layouts/css/jquery-ui.min.css"/>
-	<link rel="stylesheet" href="/bshop/views/layouts/css/owl.carousel.min.css"/>
-	<link rel="stylesheet" href="/bshop/views/layouts/css/animate.css"/>
-	<link rel="stylesheet" href="/bshop/views/layouts/css/style.css"/>
+	<link rel="stylesheet" href="/shop/bshop/views/layouts/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/shop/bshop/views/layouts/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="/shop/bshop/views/layouts/css/flaticon.css"/>
+	<link rel="stylesheet" href="/shop/bshop/views/layouts/css/slicknav.min.css"/>
+	<link rel="stylesheet" href="/shop/bshop/views/layouts/css/jquery-ui.min.css"/>
+	<link rel="stylesheet" href="/shop/bshop/views/layouts/css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="/shop/bshop/views/layouts/css/animate.css"/>
+	<link rel="stylesheet" href="/shop/bshop/views/layouts/css/style.css"/>
 
 
 	<!-- [if lt IE 9]> -->
@@ -43,8 +43,8 @@
 				<div class="row">
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
-						<a href="/bshop/" class="site-logo">
-							<img src="/bshop/views/layouts/img/your-logo.png" alt="">
+						<a href="/shop/bshop/" class="site-logo">
+							<img src="/shop/bshop/views/layouts/img/your-logo.png" alt="">
 						</a>
 					</div>
 					<div class="col-xl-8">
@@ -73,7 +73,7 @@
 									?>
 									</span>
 								</div>
-								<a href="/bshop/leds/cart/all/0">Giỏ Hàng</a>
+								<a href="/shop/bshop/leds/cart/all/0">Giỏ Hàng</a>
 							</div>
 						</div>
 					</div>
@@ -84,15 +84,15 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="/bshop/">Trang Chủ</a></li>
-                    <li><a href="/bshop/leds/categori/all">Shop</a></li>
+					<li><a href="/shop/bshop/">Trang Chủ</a></li>
+                    <li><a href="/shop/bshop/leds/categori/all">Shop</a></li>
 					<li>
                         <a href="#">Sản Phẩm Mới
                             <span class="new">Mới</span>
                         </a>
                     </li>
                     <li><a href="#">Giới Thiệu</a></li>
-					<li><a href="/bshop/leds/contact">Liên Hệ</a></li>
+					<li><a href="/shop/bshop/leds/contact">Liên Hệ</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -110,7 +110,7 @@
 	<section class="footer-section">
 		<div class="container">
 			<div class="footer-logo text-center">
-				<a href="index.html"><img src="/bshop/views/layouts/img/your-logo-f.png" alt=""></a>
+				<a href="index.html"><img src="/shop/bshop/views/layouts/img/your-logo-f.png" alt=""></a>
 			</div>
 			<div class="row">
 				<div class="col-lg-3 col-sm-6">
@@ -145,7 +145,7 @@
 						<h2>Sản Phẩm</h2>
 						<div class="fw-latest-post-widget">
 							<div class="lp-item">
-								<div class="lp-thumb set-bg" data-setbg="/bshop/views/layouts/img/blog-thumbs/1.jpg"></div>
+								<div class="lp-thumb set-bg" data-setbg="/shop/bshop/views/layouts/img/blog-thumbs/1.jpg"></div>
 								<div class="lp-content">
 									<h6>what shoes to wear</h6>
 									<span>Oct 21, 2018</span>
@@ -153,7 +153,7 @@
 								</div>
 							</div>
 							<div class="lp-item">
-								<div class="lp-thumb set-bg" data-setbg="/bshop/views/layouts/img/blog-thumbs/2.jpg"></div>
+								<div class="lp-thumb set-bg" data-setbg="/shop/bshop/views/layouts/img/blog-thumbs/2.jpg"></div>
 								<div class="lp-content">
 									<h6>trends this year</h6>
 									<span>Oct 21, 2018</span>
@@ -210,19 +210,19 @@
 
 
 	<!--====== Javascripts & Jquery ======-->
-	<script src="/bshop/views/layouts/js/jquery-3.2.1.min.js"></script>
-	<script src="/bshop/views/layouts/js/bootstrap.min.js"></script>
-	<script src="/bshop/views/layouts/js/jquery.slicknav.min.js"></script>
-	<script src="/bshop/views/layouts/js/owl.carousel.min.js"></script>
-	<script src="/bshop/views/layouts/js/jquery.nicescroll.min.js"></script>
-	<script src="/bshop/views/layouts/js/jquery.zoom.min.js"></script>
-	<script src="/bshop/views/layouts/js/jquery-ui.min.js"></script>
-	<script src="/bshop/views/layouts/js/main.js"></script>
+	<script src="/shop/bshop/views/layouts/js/jquery-3.2.1.min.js"></script>
+	<script src="/shop/bshop/views/layouts/js/bootstrap.min.js"></script>
+	<script src="/shop/bshop/views/layouts/js/jquery.slicknav.min.js"></script>
+	<script src="/shop/bshop/views/layouts/js/owl.carousel.min.js"></script>
+	<script src="/shop/bshop/views/layouts/js/jquery.nicescroll.min.js"></script>
+	<script src="/shop/bshop/views/layouts/js/jquery.zoom.min.js"></script>
+	<script src="/shop/bshop/views/layouts/js/jquery-ui.min.js"></script>
+	<script src="/shop/bshop/views/layouts/js/main.js"></script>
 
 	<script>
 		function cart() {
 			var quantity = $('#quantity').val();
-			$('#btn-cart').attr("href", "/bshop/leds/cart/<?php echo $Led['id'];?>/" + quantity);
+			$('#btn-cart').attr("href", "/shop/bshop/leds/cart/<?php echo $Led['id'];?>/" + quantity);
 		}
 
 	</script>

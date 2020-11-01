@@ -94,6 +94,17 @@ class ResourceModel implements ResourceModelInterFace
         }
     }
 
+    public function showAllLed() {
+
+        $sql =  "SELECT * FROM $this->table ORDER BY price ASC";
+
+        $req = Database::getBdd()->prepare($sql);
+
+        if($req->execute()) {
+            return $req->fetchAll();
+        }
+    }
+
     public function getId($id) {
         $sql =  "SELECT * FROM $this->table WHERE id = $id";
 

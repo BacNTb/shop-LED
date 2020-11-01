@@ -13,8 +13,11 @@ use Mvc\Models\LedRepository;
 use Mvc\Models\CateModel;
 
 use Mvc\Models\CateRepository;
+
 use Mvc\Models\CheckoutModel;
+
 use Mvc\Models\CheckoutRepository;
+
 use Mvc\Models\CustommerModel;
 
 use Mvc\Models\CustommerRepository;
@@ -40,7 +43,7 @@ class LedsController extends Controller
     function index()
     {
         $newLed = new LedModel();
-        $d['led'] = $this->LedRepository->showAll($newLed);
+        $d['led'] = $this->LedRepository->showAllLed($newLed);
         $this->set($d);
 
         $d['top'] = $this->LedRepository->showTop5($newLed);
@@ -48,7 +51,8 @@ class LedsController extends Controller
 
         $newCate = new CateModel();
         $rep = new CateRepository();
-        $d['cate'] = $rep->showAll($newCate);;
+        $d['cate'] = $rep->showAll($newCate);
+
         $this->set($d);
 
         $newImg = new ImgModel();
@@ -139,9 +143,9 @@ class LedsController extends Controller
 
         if ($id == 'all') {
             $newLed = new LedModel();
-            $d['led'] = $this->LedRepository->showAll($newLed);
+            $d['led'] = $this->LedRepository->showAllLed($newLed);
         } else {
-            $arr = $this->LedRepository->showAll($newLed);
+            $arr = $this->LedRepository->showAllLed($newLed);
 
             $d['led'] = [];
 

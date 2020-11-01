@@ -30,4 +30,8 @@ class LedRepository
     public function showTop5() {
         return $this->LedResourceModel->showTop5();
     }
+
+    public function showAllLed() {
+        return $this->LedResourceModel->showAllLed();
+    }
 }

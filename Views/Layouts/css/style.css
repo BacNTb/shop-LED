@@ -60,7 +60,9 @@ p {
 }
 
 img {
-	max-width: 100%;
+	width: 100%;
+	height: 100%;
+	object-fit: fill;
 }
 
 input:focus,
@@ -932,6 +934,10 @@ ol {
 	margin-bottom: 0;
 }
 
+.carousel-inner-img {
+	height: 270px;
+}
+
 /* -----------------------
   Product filter section
 -------------------------*/
@@ -1528,7 +1534,7 @@ ol {
 
 .product-big-img {
 	width: 600px;
-	height: 350px;
+	height: 330px;
 	object-fit: cover;
 }
 
@@ -2043,6 +2049,10 @@ ol {
 	margin-bottom: 20px;
 }
 
+.payment-list li img {
+	width: 36px;
+}
+
 .payment-list li a,
 .payment-list li span {
 	padding-left: 40px;
@@ -2228,6 +2238,7 @@ ol {
 	margin-right: 50px;
 	position: relative;
 	border-radius: 5px 0 0 5px;
+	min-width: 270px;
 }
 	
 .product-heading .heading-title:after {
@@ -2249,9 +2260,8 @@ ol {
 
 .product-heading .heading-title span {
 	font-size: 16px;
-	padding: 0 30px;
+	padding: 0 35px;
 	color: #fff;
-	min-width: 260px;
 }
 
 /* ----------------

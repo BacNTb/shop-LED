@@ -11,7 +11,7 @@
 <section class="product-section">
     <div class="container">
         <div class="back-link">
-            <a href="/bshop/leds/categori/all"> &lt;&lt; Trở lại trang sản phẩm</a>
+            <a href="/shop/bshop/leds/categori/all"> &lt;&lt; Trở lại trang sản phẩm</a>
         </div>
         <div class="row">
             <div class="col-lg-6">
@@ -26,17 +26,17 @@
                 <?php } ?>
 
                 <div class="product-pic-zoom">
-                    <img class="product-big-img" src="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
+                    <img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
                 </div>
                 <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
                     <div class="product-thumbs-track">
 
-                        <div class="pt active" data-imgbigurl="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>"><img src="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" alt="<?php echo $arrImg[$i]; ?>"></div>
+                        <div class="pt active" data-imgbigurl="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>"><img src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" alt="<?php echo $arrImg[$i]; ?>"></div>
                         <?php $totall = count($arrImg); ?>
 
                         <?php if ($totall > 1) { ?>
                             <?php for ($i = 1; $i < $totall; $i++) { ?>
-                                <div class="pt" data-imgbigurl="/bshop/views/layouts/img/<?php echo $arrImg[$i]; ?>"><img src="/bshop/views/layouts/img/<?php echo $arrImg[$i]; ?>" alt="<?php echo $arrImg[$i]; ?>"></div>
+                                <div class="pt" data-imgbigurl="/shop/bshop/views/layouts/img/product/<?php echo $arrImg[$i]; ?>"><img src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg[$i]; ?>" alt="<?php echo $arrImg[$i]; ?>"></div>
                             <?php } ?>
                         <?php } ?>
                     </div>
@@ -86,7 +86,7 @@
                         </div>
                         <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                             <div class="panel-body">
-                                <img src="/bshop/views/layouts/img/cards.png" alt="">
+                                <img src="/shop/bshop/views/layouts/img/cards.png" alt="">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
                             </div>
                         </div>
@@ -140,11 +140,11 @@
                 <div class="product-item">
                     <div class="pi-pic">
 
-                        <div class="tag-new">New</div>
-                        <img class="product-big-img" src="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
-
+                        <a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
+                            <img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
+                        </a>
                         <div class="pi-links">
-                            <a href="/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                            <a href="/shop/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
                             <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
                         </div>
                     </div>

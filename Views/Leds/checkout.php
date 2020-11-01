@@ -22,7 +22,7 @@
             <section class="checkout-section spad">
                 <div class="container">
                     <div class="back-link">
-                        <a href="/bshop/leds/cart/all/0"> &lt;&lt; Trở lại trang giỏ hàng</a>
+                        <a href="/shop/bshop/leds/cart/all/0"> &lt;&lt; Trở lại trang giỏ hàng</a>
                     </div>
                     <form action="" class="checkout-form" method="POST">
                         <div class="row">
@@ -74,8 +74,8 @@
                                 </div>
                                 <div class="cf-title">Thanh Toán</div>
                                 <ul class="payment-list">
-                                    <li>Paypal<a href="#"><img src="/bshop/views/layouts/img/paypal.png" alt=""></a></li>
-                                    <li>Thẻ tín dụng / thẻ ghi nợ<a href="#"><img src="/bshop/views/layouts/img/mastercart.png" alt=""></a></li>
+                                    <li>Paypal<a href="#"><img src="/shop/bshop/views/layouts/img/paypal.png" alt=""></a></li>
+                                    <li>Thẻ tín dụng / thẻ ghi nợ<a href="#"><img src="/shop/bshop/views/layouts/img/mastercart.png" alt=""></a></li>
                                     <li>Thanh toán khi bạn nhận được gói hàng (Mặc định)</li>
                                 </ul>
                                 <!-- <button class="site-btn submit-order-btn">Place Order</button> -->
@@ -111,7 +111,7 @@
                                             <li>
                                                 <input id="ledId" type="hidden" name="quantity[<?php echo $rowLed['id']; ?>]" value="<?php echo $_SESSION['quantity'][$rowLed['id']]; ?>">
                                                 <div class="pl-thumb">
-                                                    <img src="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" alt="<?php echo $arrImg['0']; ?>">
+                                                    <img src="/shop/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" alt="<?php echo $arrImg['0']; ?>">
                                                 </div>
                                                 <h6><?php echo $rowLed['name']; ?></h6>
                                                 <input id="priceIdOne" type="hidden" name="priceone[<?php echo $rowLed['id']; ?>]" value="<?php echo $rowLed['price']; ?>">
@@ -169,11 +169,12 @@
                 <div class="product-item">
                     <div class="pi-pic">
 
-                        <div class="tag-new">New</div>
-                        <img class="product-big-img" src="/bshop/views/layouts/img/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
-
+                        <a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
+                            <img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
+                        </a>
+                        
                         <div class="pi-links">
-                            <a href="/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                            <a href="/shop/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
                             <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
                         </div>
                     </div>
