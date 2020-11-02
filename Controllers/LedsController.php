@@ -154,6 +154,9 @@ class LedsController extends Controller
 
         $newLed = new LedModel();
 
+        $d['ledAll'] = $this->LedRepository->showAll($newLed);
+        $this->set($d);
+
         $d['top'] = $this->LedRepository->showTop5($newLed);
         $this->set($d);
 

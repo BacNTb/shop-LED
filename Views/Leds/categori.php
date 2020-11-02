@@ -6,11 +6,20 @@
 				<div class="filter-widget">
 					<h2 class="fw-title">Danh Mục</h2>
 					<ul class="category-menu">
-						<?php foreach ($cate as $row) { ?>
+						<?php foreach ($cate as $rowCate) { ?>
 							<li>
-								<a href="/shop/bshop/leds/categori/<?php echo $row['id']; ?>">
-									<?php echo $row['name']; ?>
-									<span>(2)</span>
+								<a href="/shop/bshop/leds/categori/<?php echo $rowCate['id']; ?>">
+									<?php echo $rowCate['name']; ?>
+									<span>
+									<?php $count = 0;
+										foreach ($ledAll as $rowLed) {
+											if($rowLed['categori_id'] == $rowCate['id']) {
+												$count += 1;
+											}   
+										}
+										echo $count;
+									?>
+									</span>
 								</a>
 
 							</li>
@@ -63,10 +72,6 @@
 							</div>
 						</div>
 					<?php } ?>
-
-					<!-- <div class="text-center w-100 pt-3">
-						<button class="site-btn sb-line sb-dark">XEM THÊM</button>
-					</div> -->
 				</div>
 			</div>
 		</div>
