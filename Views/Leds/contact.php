@@ -32,15 +32,9 @@
                 <?php if (isset($error)) { ?>
                     <?php if($error == 'true') { ?>
                         <h5 class="text-danger">Gửi Mail thành công !</h5>
-                        <!-- <div class="back-link mt-2">
-                            <a href="/shop/bshop/leds/contact"> &lt;&lt; Gửi thêm Mail !</a>
-                        </div> -->
 
                     <?php } else { ?>
                         <h5 class="text-warning"><?php echo $error;?></h5>
-                        <!-- <div class="back-link mt-2">
-                            <a href="/shop/bshop/leds/contact"> &lt;&lt; Gửi lại Mail !</a>
-                        </div> -->
 
                     <?php } ?>
                 <?php } ?>
@@ -97,7 +91,9 @@
                     </div>
                     <div class="pi-text">
                         <h6><?php echo number_format($rowTop['price'], 0, ',', '.'); ?><sup>đ</sup></h6>
-                        <p><?php echo $rowTop['name']; ?></p>
+                        <a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
+                            <p><?php echo $rowTop['name']; ?></p>
+                        </a>
                     </div>
                 </div>
 

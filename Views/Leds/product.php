@@ -150,7 +150,9 @@
                     </div>
                     <div class="pi-text">
                         <h6><?php echo number_format($rowTop['price'], 0, ',', '.'); ?><sup>đ</sup></h6>
-                        <p><?php echo $rowTop['name']; ?></p>
+                        <a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
+                            <p><?php echo $rowTop['name']; ?></p>
+                        </a>
                     </div>
                 </div>
 

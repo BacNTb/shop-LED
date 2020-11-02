@@ -127,7 +127,9 @@
                     <div class="pi-pic">
 
                         <div class="tag-new">New</div>
-                        <img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
+                        <a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
+							<img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
+						</a>
 
                         <div class="pi-links">
                             <a href="/shop/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
@@ -136,7 +138,9 @@
                     </div>
                     <div class="pi-text">
                         <h6><?php echo number_format($rowTop['price'], 0, ',', '.'); ?><sup>đ</sup></h6>
-                        <p><?php echo $rowTop['name']; ?></p>
+                        <a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
+                            <p><?php echo $rowTop['name']; ?></p>
+                        </a>
                     </div>
                 </div>
 
