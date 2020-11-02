@@ -68,14 +68,17 @@ class LedsController extends Controller
     {
         if(isset($_POST['toAddress'])) {
 
-            if(empty($_POST['addReplyTo'])) {
-                $d['error'] = "Vui lòng nhập Email của bạn !";
+            if(empty($_POST['addName'])) {
+                $d['error'] = "Vui lòng nhập họ tên của bạn !";
 
-            } elseif(empty($_POST['title'])) {
+            } elseif (empty($_POST['addReplyTo'])) {
                 $d['error'] = "Vui lòng nhập tiêu đề Email của bạn !";
 
+            } elseif(empty($_POST['title'])) {
+                $d['error'] = "Vui lòng nhập tiêu đề tiêu đề của bạn !";
+
             } elseif(empty($_POST['content'])) {
-                $d['error'] = "Vui lòng nhập nội dung Email của bạn !";
+                $d['error'] = "Vui lòng nhập nội dung nội dung của bạn !";
 
             } else {
                 $mail = new PHPMailer(true);               
@@ -85,14 +88,14 @@ class LedsController extends Controller
                     $mail->isSMTP();                              
                     $mail->Host = 'smtp.gmail.com';  
                     $mail->SMTPAuth = true;                         
-                    $mail->Username = 'bacnt99@gmail.com';             
+                    $mail->Username = 'binzzz1101@gmail.com';             
                     $mail->Password = 'Nthebac99';                    
                     $mail->SMTPSecure = 'ssl';                        
                     $mail->Port = '465';      
 
-                    $mail->setFrom('bacnt99@gmail.com', "Khách Hàng");
-                    $mail->addAddress($_POST['toAddress'], 'Email người nhận');    
-                    $mail->addReplyTo($_POST['addReplyTo'], 'Email khách hàng');
+                    $mail->setFrom($_POST['addReplyTo'], $_POST['addName']);
+                    $mail->addAddress($_POST['toAddress']);    
+                    $mail->addReplyTo($_POST['addReplyTo'], $_POST['addName']);
                 //    $mail->addCC('CCemail@gmail.com');
                 //    $mail->addBCC('BCCemail@gmail.com');
                     $mail->isHTML(true);                              
@@ -111,7 +114,7 @@ class LedsController extends Controller
                     $this->set($d);
 
                 } catch (Exception $e) {
-                    echo 'Lỗi không thực hiện được: ', $mail->ErrorInfo;
+                    $d['error'] = 'Lỗi không thực hiện được: ' . $mail->ErrorInfo;
                 }
             }
 
