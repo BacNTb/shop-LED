@@ -14,7 +14,7 @@
            </div>
            <div class="offer-card text-white">
              <span>CHỈ TỪ</span>
-             <h5>990.000<sup>đ</sup></h5>
+             <h5>30.000<sup>đ</sup></h5>
              <p>MUA NGAY</p>
            </div>
          </div>
@@ -32,7 +32,7 @@
            </div>
            <div class="offer-card text-white">
              <span>CHỈ TỪ</span>
-             <h5>990.000<sup>đ</sup></h5>
+             <h5>30.000<sup>đ</sup></h5>
              <p>MUA NGAY</p>
            </div>
          </div>
