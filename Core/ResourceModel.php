@@ -18,6 +18,9 @@ class ResourceModel implements ResourceModelInterFace
         $this->id = $id;
         $this->model = $model;
     }
+    public function delete($model) {
+
+    }
 
     public function save($model)
     {
