@@ -30,11 +30,11 @@
                 <h3 class="send-mail">Gửi Mail cho chúng tôi !</h3>
 
                 <?php if (isset($error)) { ?>
-                    <?php if($error == 'true') { ?>
+                    <?php if ($error == 'true') { ?>
                         <h5 class="text-danger">Gửi Mail thành công !</h5>
 
                     <?php } else { ?>
-                        <h5 class="text-warning"><?php echo $error;?></h5>
+                        <h5 class="text-warning"><?php echo $error; ?></h5>
 
                     <?php } ?>
                 <?php } ?>
@@ -69,21 +69,21 @@
         <div class="product-slider owl-carousel">
 
             <?php foreach ($top as $rowTop) { ?>
-                <?php $arrImg = []; ?>
-                <?php foreach ($img as $key => $rowImg) { ?>
+                <?php
+                $arrImg = [];
+                foreach ($img as $key => $rowImg) {
+                    if ($rowTop['id'] == $rowImg['led_id']) {
 
-                    <?php if ($rowTop['id'] == $rowImg['led_id']) { ?>
-
-                        <?php $arrImg[] = $rowImg['name']; ?>
-
-                    <?php } ?>
-                <?php } ?>
+                        $arrImg[] = $rowImg['name'];
+                    }
+                }
+                ?>
                 <div class="product-item">
                     <div class="pi-pic">
                         <a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
                             <img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
                         </a>
-                        
+
                         <div class="pi-links">
                             <a href="/shop/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
                             <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
@@ -96,7 +96,6 @@
                         </a>
                     </div>
                 </div>
-
             <?php } ?>
         </div>
 

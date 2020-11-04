@@ -1,4 +1,5 @@
 <?php
+
 namespace Mvc\Core;
 
 use Mvc\Core\ResourceModelInterFace;
@@ -26,7 +27,7 @@ class ResourceModel implements ResourceModelInterFace
         $arr = $model->getProperties();
 
         $newArr = [];
-        
+
         if ($id) {
             $values = "";
 
@@ -34,7 +35,7 @@ class ResourceModel implements ResourceModelInterFace
             $keyx = "";
 
             foreach ($arr as $key => $value) {
-                if($key != "id" && $key != "create_at") {
+                if ($key != "id" && $key != "create_at") {
                     $values .= "$key = :$key ,";
 
                     $keyx .= "$key ,";
@@ -50,23 +51,21 @@ class ResourceModel implements ResourceModelInterFace
             $trimValue = trim($valuex, ",");
 
 
-            if($table == 'image') {
+            if ($table == 'image') {
                 $sql = "INSERT INTO $this->table ($trimKey) VALUES ($trimValue)";
-
             } else {
-                $sql = "UPDATE $this->table SET $trimValues WHERE id = $id";            
+                $sql = "UPDATE $this->table SET $trimValues WHERE id = $id";
             }
 
             $req = Database::getBdd()->prepare($sql);
 
             return $req->execute($newArr);
-
         } else {
             $values = "";
             $keys = "";
 
             foreach ($arr as $key => $value) {
-                if($key != "id" && $key != "update_at") {
+                if ($key != "id" && $key != "update_at") {
                     $keys .= "$key ,";
                     $values .= "'$value' ,";
                     $newArr[$key] = $value;
@@ -77,50 +76,54 @@ class ResourceModel implements ResourceModelInterFace
             $trimValues = trim($values, ",");
 
             $sql = "INSERT INTO $this->table ($trimKeys) VALUES ($trimValues)";
-                        
+
             $req = Database::getBdd()->prepare($sql);
 
             return $req->execute($newArr);
         }
     }
 
-    public function showAll() {
+    public function showAll()
+    {
         $sql =  "SELECT * FROM $this->table";
 
         $req = Database::getBdd()->prepare($sql);
 
-        if($req->execute()) {
+        if ($req->execute()) {
             return $req->fetchAll();
         }
     }
 
-    public function showAllLed() {
+    public function showAllLed()
+    {
 
         $sql =  "SELECT * FROM $this->table ORDER BY price ASC";
 
         $req = Database::getBdd()->prepare($sql);
 
-        if($req->execute()) {
+        if ($req->execute()) {
             return $req->fetchAll();
         }
     }
 
-    public function getId($id) {
+    public function getId($id)
+    {
         $sql =  "SELECT * FROM $this->table WHERE id = $id";
 
         $req = Database::getBdd()->prepare($sql);
 
-        if($req->execute()){
+        if ($req->execute()) {
             return  $req->fetch();
         }
     }
 
-    public function showTop5() {
+    public function showTop5()
+    {
         $sql =  "SELECT * FROM $this->table ORDER BY create_at DESC LIMIT 5";
 
         $req = Database::getBdd()->prepare($sql);
 
-        if($req->execute()) {
+        if ($req->execute()) {
             return $req->fetchAll();
         }
     }

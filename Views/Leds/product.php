@@ -15,16 +15,15 @@
         </div>
         <div class="row">
             <div class="col-lg-6">
-                <?php $arrImg = []; ?>
-                <?php foreach ($img as $key => $rowImg) { ?>
+                <?php
+                $arrImg = [];
+                foreach ($img as $key => $rowImg) {
+                    if ($Led['id'] == $rowImg['led_id']) {
 
-                    <?php if ($Led['id'] == $rowImg['led_id']) { ?>
-
-                        <?php $arrImg[] = $rowImg['name']; ?>
-
-                    <?php } ?>
-                <?php } ?>
-
+                        $arrImg[] = $rowImg['name'];
+                    }
+                }
+                ?>
                 <div class="product-pic-zoom">
                     <img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
                 </div>
@@ -118,7 +117,6 @@
 </section>
 <!-- product section end -->
 
-
 <!-- RELATED PRODUCTS section -->
 <section class="related-product-section">
     <div class="container">
@@ -128,18 +126,17 @@
         <div class="product-slider owl-carousel">
 
             <?php foreach ($top as $rowTop) { ?>
-                <?php $arrImg = []; ?>
-                <?php foreach ($img as $key => $rowImg) { ?>
+                <?php
+                $arrImg = [];
+                foreach ($img as $key => $rowImg) {
+                    if ($rowTop['id'] == $rowImg['led_id']) {
 
-                    <?php if ($rowTop['id'] == $rowImg['led_id']) { ?>
-
-                        <?php $arrImg[] = $rowImg['name']; ?>
-
-                    <?php } ?>
-                <?php } ?>
+                        $arrImg[] = $rowImg['name'];
+                    }
+                }
+                ?>
                 <div class="product-item">
                     <div class="pi-pic">
-
                         <a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
                             <img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
                         </a>
@@ -155,9 +152,7 @@
                         </a>
                     </div>
                 </div>
-
             <?php } ?>
-
         </div>
     </div>
 </section>

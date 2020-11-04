@@ -114,8 +114,8 @@
              <div class="pi-text">
                <h6><?php echo number_format($rowTop['price'], 0, ',', '.'); ?><sup>đ</sup></h6>
                <a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
-                  <p><?php echo $rowTop['name']; ?></p>
-                </a>
+                 <p><?php echo $rowTop['name']; ?></p>
+               </a>
              </div>
            </div>
 
@@ -157,45 +157,48 @@
 
        <div class="row mt-5">
 
-         <?php foreach ($cate as $rowCate) { ?>
-
-           <div class="col-md-12 product-heading">
-             <div class="heading">
-               <div class="heading-title">
-                 <a href="/shop/bshop/leds/categori/<?php echo $rowCate['id']; ?>" role="button">
-                   <h2>
-                     <span>
-                       <?php echo $rowCate['name']; ?>
-                     </span>
-                   </h2>
-                 </a>
-               </div>
-             </div>
+         <div class="col-md-12 product-heading">
+           <?php foreach ($cate as $rowCate) { ?>
+             <?php $a = 0; ?>
+             <?php foreach ($led as $rowLed) { ?>
+               <?php if ($rowLed['categori_id'] == $rowCate['id']) { ?>
+                 <?php $a += 1; ?>
+                 <?php if ($a <= 1) { ?>
+                   <div class="heading">
+                     <div class="heading-title">
+                       <a href="/shop/bshop/leds/categori/<?php echo $rowCate['id']; ?>" role="button">
+                         <h2>
+                           <span>
+                             <?php echo $rowCate['name']; ?>
+                           </span>
+                         </h2>
+                       </a>
+                     </div>
+                   </div>
+                 <?php } ?>
+               <?php } ?>
+             <?php } ?>
 
              <div class="row">
 
-               <?php $a = 0; ?>
+               <?php $b = 0; ?>
                <?php foreach ($led as $rowLed) { ?>
                  <?php if ($rowLed['categori_id'] == $rowCate['id']) { ?>
-
-                   <?php $a += 1; ?>
-
-                   <?php if ($a <= 4) { ?>
+                   <?php $b += 1; ?>
+                   <?php if ($b <= 4) { ?>
 
                      <div class="col-lg-3 col-sm-6 product-index">
                        <div class="product-item">
                          <div class="pi-pic">
 
                            <?php $arrImg = []; ?>
-                           <?php foreach ($img as $key => $rowImg) { ?>
+                           <?php foreach ($img as $key => $rowImg) {
+                              if ($rowLed['id'] == $rowImg['led_id']) {
 
-                             <?php if ($rowLed['id'] == $rowImg['led_id']) { ?>
-
-                               <?php $arrImg[] = $rowImg['name']; ?>
-
-                             <?php } ?>
-                           <?php } ?>
-
+                                $arrImg[] = $rowImg['name'];
+                              }
+                            }
+                            ?>
                            <div class="carousel-inner-img">
                              <a href="/shop/bshop/leds/product/<?php echo $rowLed['id']; ?>">
                                <img src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" alt="<?php echo $arrImg['0']; ?>">
@@ -219,12 +222,8 @@
                  <?php } ?>
                <?php } ?>
              </div>
-           </div>
-
-           <hr class="my-4">
-
-         <?php } ?>
-
+           <?php } ?>
+         </div>
        </div>
      </div>
    </section>
@@ -240,14 +239,13 @@
 
          <?php foreach ($top as $rowTop) { ?>
            <?php $arrImg = []; ?>
-           <?php foreach ($img as $key => $rowImg) { ?>
+           <?php foreach ($img as $key => $rowImg) {
+              if ($rowTop['id'] == $rowImg['led_id']) {
 
-             <?php if ($rowTop['id'] == $rowImg['led_id']) { ?>
-
-               <?php $arrImg[] = $rowImg['name']; ?>
-
-             <?php } ?>
-           <?php } ?>
+                $arrImg[] = $rowImg['name'];
+              }
+            }
+            ?>
            <div class="product-item">
              <div class="pi-pic">
 

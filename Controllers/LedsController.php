@@ -66,58 +66,50 @@ class LedsController extends Controller
 
     function contact()
     {
-        if(isset($_POST['toAddress'])) {
+        if (isset($_POST['toAddress'])) {
 
-            if(empty($_POST['addName'])) {
+            if (empty($_POST['addName'])) {
                 $d['error'] = "Vui lòng nhập họ tên của bạn !";
-
             } elseif (empty($_POST['addReplyTo'])) {
                 $d['error'] = "Vui lòng nhập tiêu đề Email của bạn !";
-
-            } elseif(empty($_POST['title'])) {
+            } elseif (empty($_POST['title'])) {
                 $d['error'] = "Vui lòng nhập tiêu đề tiêu đề của bạn !";
-
-            } elseif(empty($_POST['content'])) {
+            } elseif (empty($_POST['content'])) {
                 $d['error'] = "Vui lòng nhập nội dung nội dung của bạn !";
-
             } else {
-                $mail = new PHPMailer(true);               
+                $mail = new PHPMailer(true);
                 try {
                     $mail->CharSet = "UTF-8";
-                    $mail->SMTPDebug = 0;                     
-                    $mail->isSMTP();                              
-                    $mail->Host = 'smtp.gmail.com';  
-                    $mail->SMTPAuth = true;                         
-                    $mail->Username = 'binzzz1101@gmail.com';             
-                    $mail->Password = 'Nthebac99';                    
-                    $mail->SMTPSecure = 'ssl';                        
-                    $mail->Port = '465';      
+                    $mail->SMTPDebug = 0;
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'binzzz1101@gmail.com';
+                    $mail->Password = 'Nthebac99';
+                    $mail->SMTPSecure = 'ssl';
+                    $mail->Port = '465';
 
                     $mail->setFrom($_POST['addReplyTo'], $_POST['addName']);
-                    $mail->addAddress($_POST['toAddress']);    
+                    $mail->addAddress($_POST['toAddress']);
                     $mail->addReplyTo($_POST['addReplyTo'], $_POST['addName']);
-                //    $mail->addCC('CCemail@gmail.com');
-                //    $mail->addBCC('BCCemail@gmail.com');
-                    $mail->isHTML(true);                              
+                    //    $mail->addCC('CCemail@gmail.com');
+                    //    $mail->addBCC('BCCemail@gmail.com');
+                    $mail->isHTML(true);
                     $mail->Subject = $_POST['title'];
                     $mail->Body = $_POST['content'];
-                    $mail->AltBody = $_POST['content']; 
+                    $mail->AltBody = $_POST['content'];
                     $result = $mail->send();
                     if (!$result) {
                         $d['error'] = "Lỗi trong quá trình gửi Mail !";
-
                     } else {
                         $d['error'] = "true";
-
                     }
 
                     $this->set($d);
-
                 } catch (Exception $e) {
                     $d['error'] = 'Lỗi không thực hiện được: ' . $mail->ErrorInfo;
                 }
             }
-
         }
 
         $newLed = new LedModel();
@@ -147,6 +139,9 @@ class LedsController extends Controller
         $d['cate'] = $rep->showAll($newCate);;
         $this->set($d);
 
+        $d['cateAll'] = $rep->showAll($newCate);;
+        $this->set($d);
+
         $newImg = new ImgModel();
         $req = new ImgRepository();
         $d['img'] = $req->showAll($newImg);;
@@ -167,7 +162,6 @@ class LedsController extends Controller
 
             $d['message'] = 'Tất Cả Sản Phẩm';
             $this->set($d);
-
         } else {
             $arr = $this->LedRepository->showAllLed($newLed);
 
@@ -192,9 +186,9 @@ class LedsController extends Controller
 
     public function cart($id, $quantity)
     {
-        
+
         if (isset($_SESSION['cart'][$id])) {
-            
+
             if (isset($_POST['sum'])) {
 
                 foreach ($_POST['sum'] as $id => $sum) {
@@ -207,7 +201,7 @@ class LedsController extends Controller
                 }
             } else {
 
-                if($quantity != '0') {
+                if ($quantity != '0') {
                     $_SESSION['quantity'][$id] = $_SESSION['quantity'][$id] + $quantity;
                 }
             }
@@ -219,12 +213,12 @@ class LedsController extends Controller
             $_SESSION['quantity'][$id] = $quantity;
         }
 
-        if(isset($_SESSION['cart'])) {
+        if (isset($_SESSION['cart'])) {
 
             $arrId = [];
 
             foreach ($_SESSION['cart'] as $id => $value) {
-                if($id != 'all') {
+                if ($id != 'all') {
                     $arrId[] = $id;
                 }
             }
@@ -281,11 +275,11 @@ class LedsController extends Controller
         $d['img'] = $req->showAll($newImg);;
         $this->set($d);
 
-        
-        if(isset($_SESSION['cart'])) {
-            
+
+        if (isset($_SESSION['cart'])) {
+
             $arrId = [];
-        
+
 
             foreach ($_SESSION['cart'] as $id => $value) {
                 $arrId[] = $id;
@@ -308,18 +302,18 @@ class LedsController extends Controller
 
             $this->set($d);
         }
-        
+
         if (isset($_POST['name'])) {
 
             $quantitys = $_POST['quantity'];
             $prices = $_POST['price'];
             $priceOnes = $_POST['priceone'];
-    
+
             $address = $_POST["village"] . '-' . $_POST["district"] . '-' . $_POST["city"];
-            
+
             $Cus = new CustommerModel();
             $req = new CustommerRepository();
-            
+
             $Cus->setName($_POST["name"]);
             $Cus->setAddress($address);
             $Cus->setEmail($_POST["email"]);
@@ -333,11 +327,11 @@ class LedsController extends Controller
 
                 foreach ($quantitys as $keyQuantity => $valueQuantity) {
                     foreach ($prices as $keyPrice => $valuePrice) {
-                        if($keyQuantity == $keyPrice) {
+                        if ($keyQuantity == $keyPrice) {
                             $quantity = $valueQuantity;
-                            
+
                             foreach ($priceOnes as $keyPriceOne => $valuePriceOne) {
-                                if($keyPrice == $keyPriceOne) {
+                                if ($keyPrice == $keyPriceOne) {
                                     $priceOne = $valuePriceOne;
                                     $price = $valuePrice;
                                 }
@@ -347,7 +341,7 @@ class LedsController extends Controller
 
                     $Check = new CheckoutModel();
                     $rep = new CheckoutRepository();
-                    
+
                     $Check->setLed_id($keyQuantity);
                     $Check->setCus_id($cus_id);
                     $Check->setCount($quantity);
@@ -357,15 +351,13 @@ class LedsController extends Controller
 
                     $result = $rep->add($Check);
                 }
-                
-                if($result) {
+
+                if ($result) {
                     unset($_SESSION['cart']);
-                    
+
                     $d['notification'] = "Đã đặt hàng thành công !";
                     $this->set($d);
-
                 }
-
             }
         }
 

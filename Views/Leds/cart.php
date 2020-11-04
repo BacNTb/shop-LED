@@ -2,10 +2,6 @@
 <div class="page-top-info">
     <div class="container">
         <h4>Giỏ Hàng</h4>
-        <!-- <div class="site-pagination">
-            <a href="">Home</a> /
-            <a href="">Your cart</a>
-        </div> -->
     </div>
 </div>
 <!-- Page info end -->
@@ -17,9 +13,7 @@
             <div class="col-lg-9">
                 <div class="cart-table">
                     <h3>Sản Phẩm Đã Chọn</h3>
-
                     <?php if (isset($_SESSION['cart'])) { ?>
-
                         <?php if (count($led) > 0) { ?>
 
                             <div class="cart-table-warp">
@@ -34,17 +28,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
                                             <?php $totalpriceAll = 0 ?>
-
                                             <?php foreach ($led as $rowLed) { ?>
-                                                <?php $totalprice = $rowLed['price'] * $_SESSION['quantity'][$rowLed['id']]; ?>
+                                                <?php
+                                                $totalprice = $rowLed['price'] * $_SESSION['quantity'][$rowLed['id']];
+                                                $totalpriceAll += $totalprice;
 
-                                                <?php $totalpriceAll += $totalprice; ?>
-
-
-                                                <?php $arrImg = []; ?>
-                                                <?php foreach ($img as $key => $rowImg) {
+                                                $arrImg = [];
+                                                foreach ($img as $key => $rowImg) {
 
                                                     if ($rowLed['id'] == $rowImg['led_id']) {
 
@@ -76,7 +67,6 @@
                                                     </td>
                                                 </tr>
                                             <?php } ?>
-
                                         </tbody>
                                     </table>
                                 </form>
@@ -105,7 +95,6 @@
     </div>
 </section>
 
-
 <section class="related-product-section">
     <div class="container">
         <div class="section-title text-uppercase">
@@ -114,22 +103,22 @@
         <div class="product-slider owl-carousel">
 
             <?php foreach ($top as $rowTop) { ?>
-                <?php $arrImg = []; ?>
-                <?php foreach ($img as $key => $rowImg) { ?>
+                <?php
+                $arrImg = [];
+                foreach ($img as $key => $rowImg) {
+                    if ($rowTop['id'] == $rowImg['led_id']) {
 
-                    <?php if ($rowTop['id'] == $rowImg['led_id']) { ?>
-
-                        <?php $arrImg[] = $rowImg['name']; ?>
-
-                    <?php } ?>
-                <?php } ?>
+                        $arrImg[] = $rowImg['name'];
+                    }
+                }
+                ?>
                 <div class="product-item">
                     <div class="pi-pic">
 
                         <div class="tag-new">New</div>
                         <a href="/shop/bshop/leds/product/<?php echo $rowTop['id']; ?>">
-							<img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
-						</a>
+                            <img class="product-big-img" src="/shop/bshop/views/layouts/img/product/<?php echo $arrImg['0']; ?>" class="thumbnail" alt="<?php echo $arrImg['0']; ?>">
+                        </a>
 
                         <div class="pi-links">
                             <a href="/shop/bshop/leds/cart/<?php echo $rowTop['id']; ?>/1" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
@@ -143,9 +132,7 @@
                         </a>
                     </div>
                 </div>
-
             <?php } ?>
-
         </div>
     </div>
 </section>

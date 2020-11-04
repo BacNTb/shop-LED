@@ -7,7 +7,6 @@
 <!-- Page info end -->
 
 <?php if (isset($notification)) { ?>
-
     <div class="page-top-info">
         <div class="container">
             <h5><?php echo $notification; ?></h5>
@@ -15,10 +14,8 @@
     </div>
 
 <?php } else { ?>
-
     <?php if (isset($_SESSION['cart'])) { ?>
         <?php if (count($led) > 0) { ?>
-
             <section class="checkout-section spad">
                 <div class="container">
                     <div class="back-link">
@@ -119,11 +116,8 @@
 
                                                 <p><?php echo number_format($totalprice, 0, ',', '.'); ?><sup>đ</sup></p>
                                             </li>
-
                                         <?php } ?>
-
                                     </ul>
-
                                     <ul class="price-list">
                                         <li>Tổng tiền<span><?php echo number_format($totalpriceAll, 0, ',', '.'); ?><sup>đ</sup></span></li>
                                         <li>Vận chuyển<span>Miễn phí</span></li>
@@ -143,10 +137,8 @@
                     <h5>Chưa Chọn Sản Phẩm Nào</h5>
                 </div>
             </div>
-
         <?php } ?>
     <?php } ?>
-
 <?php } ?>
 
 <section class="related-product-section mt-5">
@@ -157,15 +149,16 @@
         <div class="product-slider owl-carousel">
 
             <?php foreach ($top as $rowTop) { ?>
-                <?php $arrImg = []; ?>
-                <?php foreach ($img as $key => $rowImg) { ?>
+                <?php
+                $arrImg = [];
+                foreach ($img as $key => $rowImg) {
 
-                    <?php if ($rowTop['id'] == $rowImg['led_id']) { ?>
+                    if ($rowTop['id'] == $rowImg['led_id']) {
 
-                        <?php $arrImg[] = $rowImg['name']; ?>
-
-                    <?php } ?>
-                <?php } ?>
+                        $arrImg[] = $rowImg['name'];
+                    }
+                }
+                ?>
                 <div class="product-item">
                     <div class="pi-pic">
 
@@ -185,9 +178,7 @@
                         </a>
                     </div>
                 </div>
-
             <?php } ?>
-
         </div>
     </div>
 </section>
